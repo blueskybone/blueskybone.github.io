@@ -20,23 +20,26 @@
         <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
     
     <meta name="description" content="Great ideals but through selfless struggle and sacrifice to achieve.">
-    <meta name="description" content="2021-10-26">
+    <meta name="description" content="开摆！">
 <meta property="og:type" content="article">
-<meta property="og:title" content="造型技术">
-<meta property="og:url" content="http://blueskybone.github.io/2021/10/26/%E9%80%A0%E5%9E%8B%E6%8A%80%E6%9C%AF/index.html">
+<meta property="og:title" content="CMUsphinx训练半连续声学模型">
+<meta property="og:url" content="http://blueskybone.github.io/2022/06/30/sphinxtrain/index.html">
 <meta property="og:site_name" content="BLUESKYBONE">
-<meta property="og:description" content="2021-10-26">
+<meta property="og:description" content="开摆！">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-10-25T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-03-31T11:43:16.890Z">
+<meta property="og:image" content="https://s2.loli.net/2022/07/04/8eWix7aOEJby1Iq.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/04/NU4bOE7dTlVCBtW.png">
+<meta property="article:published_time" content="2022-06-29T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-07-04T02:11:46.774Z">
 <meta property="article:author" content="BlueSkyBone">
-<meta property="article:tag" content="计算机图形学">
+<meta property="article:tag" content="教程">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/07/04/8eWix7aOEJby1Iq.png">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/assets/favicon_new.ico">
     
-    <title>造型技术 · blueskybone</title>
+    <title>CMUsphinx训练半连续声学模型 · blueskybone</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -262,7 +265,7 @@
                 <a href="/">BLUESKYBONE.</a>
             </div>
             <div class="post-title header-element">
-                <a href="#" class="post-name">造型技术</a>
+                <a href="#" class="post-name">CMUsphinx训练半连续声学模型</a>
             </div>
         </div>
     
@@ -310,7 +313,7 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-                造型技术
+                CMUsphinx训练半连续声学模型
             <!-- 404 -->
             
         </h1>
@@ -330,20 +333,20 @@
                     <div class= post-intro-tags >
     
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="计算机图形学">计算机图形学</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="教程">教程</a>
     
 </div>
 
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">355</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">1.6k</span>阅读时长: <span class="post-count reading-time">6 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <!-- 撰写日期 -->
                     <span class="iconfont-archer post-intro-calander">&#xe676;</span>
-                    <span class="post-intro-time">2021/10/26</span>
+                    <span class="post-intro-time">2022/06/30</span>
                     <!-- busuanzi -->
                     
                         <span id="busuanzi_container_page_pv" class="busuanzi-pv">
@@ -498,34 +501,107 @@
             <div class="container container-unloaded">
                 <main class="main post-page">
     <article class="article-entry">
-        <p>2021-10-26</p>
+        <p>开摆！</p>
 <span id="more"></span>
 
-<p>规则对象：几何造型</p>
-<p>不规则对象：过程造型</p>
-<p>图形对象：几何信息+非几何信息<br>体-面-环-边-点</p>
-<p>实体的简单定义：三维空间中的无题是一个内部连通的三维点集，</p>
-<p>CSG树</p>
-<p>八叉树-空间分隔表示（SP）</p>
-<p>边界表示B-reps</p>
-<p>平面多边形表格：几何信息（定点表，边表，多边形表）+拓扑信息</p>
-<p>p(u) = (1-u)p0+up1;</p>
-<p>p(u) = p0+ud</p>
-<p>平面</p>
-<p>p(u,v) = p0+uq+vr</p>
-<p>q=p0-p1</p>
-<p>r= p2-p0</p>
-<p>n=q x r</p>
-<p>球面</p>
-<p>参数多项式表示<br>分段和连续性<br>曲线光滑：不存在度偶遇拐点和奇异点（一阶导数</p>
-<p>C0连续性，几何位置重合<br>C1连续性，一阶导数相等<br>C2，有相同的一阶导数和二阶导数</p>
-<p>x+1=y^2-2y+1</p>
-<p>逼近法、插值法<br>逼近法：三次参数曲线<br>P(t) = A3t^3+A2t^2+A1t+A0</p>
-<p>插值法：<br>n+1个型值点，每一段需要确定四个系数值A0A1A2A3<br>缺点：全局控制，控制的点任何一个改动在，整个曲线都要受到影响，不能局部调整</p>
-<p>逼近曲线：Bezier曲线曲面<br>贝塞尔曲线</p>
-<p>games101参见<br>De casteljau 德卡斯特利奥算法，核心算法线性插值，递归算法，直到控制点只有一个，即为目标点</p>
-<p>t(0,1)<br>端点一阶导数</p>
-<p>Equations计算控制点</p>
+<p>官网教程 <a target="_blank" rel="noopener" href="https://cmusphinx.github.io/wiki/tutorialam/#when-you-need-to-train">when you need to train</a></p>
+<p>需要的东西：</p>
+<p><strong>1.语言模型</strong></p>
+<p><strong>2.声学模型</strong></p>
+<p>思路：</p>
+<p>windows下准备语言模型，训练声学模型的数据。</p>
+<p>linux下训练声学模型。</p>
+<p>装一个虚拟机</p>
+<hr>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本教程最终训练的模型为半连续模型，用于识别不同的长文本。</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/huanghuang/archive/2011/07/18/2109101.html">野教程</a>，找了一圈，这个系列写的详细一点。不过这个教程全程在linux下，我们用windows。</p>
+<p><a target="_blank" rel="noopener" href="https://sourceforge.net/p/cmusphinx/discussion/">cmusphinx论坛</a>，遇到无法解决的问题可以去找找</p>
+<p>官网教程 <a target="_blank" rel="noopener" href="https://cmusphinx.github.io/wiki/tutorialam/">目录</a></p>
+<p>给要训练的数据库起一个名字，后续所有your_db全部替换成自己的数据库名，保持严格的一致性。</p>
+<p>除cmusphinx所有工具包外其他的工具：</p>
+<p>windows10, linux系统（ubuntu), ffmpeg（音频转换器，用别的也行）,vs2013。</p>
+<p>自制小工具：1.制作训练数据时，自己写小程序处理字符串。2.bat文件批量修改文件名。</p>
+<hr>
+<h3 id="windows下准备语言模型"><a href="#windows下准备语言模型" class="headerlink" title="windows下准备语言模型"></a>windows下准备语言模型</h3><p>1.<a target="_blank" rel="noopener" href="https://sourceforge.net/projects/cmusphinx/files/cmuclmtk/0.7/">官网下载</a>cmuclmtk-0.7-win32, 解压，将解压目录加入环境变量。</p>
+<p>2.<a target="_blank" rel="noopener" href="https://sourceforge.net/projects/cmusphinx/files/sphinxbase/">官网下载</a>sphinxbase，解压后用vs打开，全部编译一遍，生成的工具在sphinxbase\bin\Debug\Win32 下，同样将目录加入环境变量。</p>
+<p>3.新建my_data.txt文件，输入要识别的文本示例如下，空格分割要识别的单词。</p>
+<p><strong>训练半连续模型时，直接使用中文会导致问题，用英文编码代替</strong>。</p>
+<p>严格遵守下方格式，注意每行后面不要有空格</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;s&gt; ER SI LING YAO ER YI DIT YAO LING WU &lt;/s&gt; // 正确</span><br><span class="line">&lt;s&gt; 二 八 零 幺 二 幺 点 一 一 七 &lt;/s&gt;  // 错误</span><br></pre></td></tr></table></figure>
+
+<p>4.cd 到my_data.txt同目录下，执行指令</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">text2wfreq &lt; my_data.txt | wfreq2vocab &gt; my_data.vocab</span><br><span class="line">   打开my_data.vocab，检查拼写错误，再转下一步</span><br><span class="line">text2idngram -vocab my_data.vocab -idngram my_data.idngram &lt; my_data.txt</span><br><span class="line">idngram2lm –vocab my_data.vocab -idngram my_data.idngram -arpa my_data.arpa</span><br><span class="line">sphinx_lm_convert -i my_data.arpa -o my_data.lm.DMP</span><br></pre></td></tr></table></figure>
+
+<p>最终生成 my_data.lm.DMP，我们需要这个语言模型。</p>
+<hr>
+<h3 id="windows准备待训练的声学模型数据"><a href="#windows准备待训练的声学模型数据" class="headerlink" title="windows准备待训练的声学模型数据"></a>windows准备待训练的声学模型数据</h3><p>在windows下准备（<del>主要是linux不好操作</del>）</p>
+<p>参考<a target="_blank" rel="noopener" href="https://cmusphinx.github.io/wiki/tutorialam/#when-you-need-to-train">官网教程</a></p>
+<p>首先建数据库，结构如下。文件命名严格遵守格式。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">├─ etc</span><br><span class="line">│  ├─ your_db.dic                 (Phonetic dictionary)</span><br><span class="line">│  ├─ your_db.phone               (Phoneset file)</span><br><span class="line">│  ├─ your_db.lm.DMP              (Language model)</span><br><span class="line">│  ├─ your_db.filler              (List of fillers)</span><br><span class="line">│  ├─ your_db_train.fileids       (List of files for training)</span><br><span class="line">│  ├─ your_db_train.transcription (Transcription for training)</span><br><span class="line">│  ├─ your_db_test.fileids        (List of files for testing)</span><br><span class="line">│  └─ your_db_test.transcription  (Transcription for testing)</span><br><span class="line">└─ wav</span><br><span class="line">   ├─ speaker_1</span><br><span class="line">   │   └─ file_1.wav              (Recording of speech utterance)</span><br><span class="line">   └─ speaker_2</span><br><span class="line">      └─ file_2.wav</span><br></pre></td></tr></table></figure>
+
+<p>各文件内容官网wiki写的很详细。除了<strong>your_db.dic</strong>。</p>
+<ol>
+<li>your_db.dic文件需要汉语音素，网上的工具很少有生成汉语音素的（有，不好用）。github有一个已经停止维护的表<a target="_blank" rel="noopener" href="https://github.com/Jackiexiao/MTTS/blob/master/misc/mandarin-for-montreal-forced-aligner-pre-trained-model.lexicon">汉语音素字典</a>，直接照着抄。</li>
+<li>wav格式: 必须是<strong>单声道16kHZ</strong>。用工具（比如ffmpeg）转化成<strong>单声道，16kHZ</strong></li>
+<li>your_db.lm.DMP 就是上一步准备的语言模型改个名。</li>
+<li>若要训练半连续模型semi，wav数据的总时长至少为1小时。（<del>时长不够可以反复复制文件</del>）</li>
+</ol>
+<hr>
+<h3 id="Linux-下训练声学模型"><a href="#Linux-下训练声学模型" class="headerlink" title="Linux 下训练声学模型"></a>Linux 下训练声学模型</h3><p>安装VirtualBox，加载一个ubuntu系统（我用的ubuntu18.04.5），挂载共享文件夹用于windows和linux传数据。</p>
+<p><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/cmusphinx/files/">官网下载</a>下面的工具包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pocketsphinx-0.6.1（pocketsphinx_0.6.1-1.tar.gz）</span><br><span class="line">sphinxbase-0.6.1（sphinxbase-0.6.1.tar.gz）</span><br><span class="line">SphinxTrain-1.0（SphinxTrain-1.0.tar.bz2）</span><br></pre></td></tr></table></figure>
+
+<p>在ubuntu下新建目录/home/cmupack，全部移动到这个目录。</p>
+<p>右键打开terminal，按照以下步骤依次装sphinxbase, pocketsphinx，SphinxTrain</p>
+<p>步骤都一样，以sphinxbase的指令为示例…</p>
+<h4 id="安装Sphinxbase"><a href="#安装Sphinxbase" class="headerlink" title="安装Sphinxbase"></a>安装Sphinxbase</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tar xzf sphinxbase-0.6.1.tar.gz</span><br><span class="line">cd sphinxbase-0.6</span><br><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+
+<p>默认安装在/usr/local/bin下面，ls可查看。</p>
+<p>重复以上步骤装好其他工具。</p>
+<h4 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/usr/local/bin:$PATH</span><br><span class="line">export LD_LIBRARY_PATH=/usr/local/lib</span><br><span class="line">export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig</span><br></pre></td></tr></table></figure>
+
+<p>这一步待改进，直接使用上面的命令只能添加临时环境变量，重开一个terminal后它们会消失，用sphinx_fe命令会报错找不到libsphinxbase.so.3。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">failed to open libsphinx.so.0 no such file or directory</span><br></pre></td></tr></table></figure>
+
+<p>所以每一次开terminal都把这一段复制一下添加进去。</p>
+<h4 id="把windows下的数据库移动到ubuntu"><a href="#把windows下的数据库移动到ubuntu" class="headerlink" title="把windows下的数据库移动到ubuntu"></a>把windows下的数据库移动到ubuntu</h4><p>数据库名与前面保持一致，结构为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">your_db</span><br><span class="line">├─ etc</span><br><span class="line">└─ wav</span><br></pre></td></tr></table></figure>
+
+<p>整个数据库移动到刚刚装的一堆工具的根目录下（home/cmusphinx）。</p>
+<p><a href="https://sm.ms/image/8eWix7aOEJby1Iq" target="_blank"><img src="https://s2.loli.net/2022/07/04/8eWix7aOEJby1Iq.png" ></a></p>
+<h4 id="设置训练参数"><a href="#设置训练参数" class="headerlink" title="设置训练参数"></a>设置训练参数</h4><p>要开始训练，切换到数据库文件夹并运行以下命令：</p>
+<p>在 Linux 上：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sphinxtrain -t your_db setup</span><br></pre></td></tr></table></figure>
+
+<p>在etc目录下将生成两个新文件，打开其中的配置文件<strong>sphinx_train.cfg</strong>进行配置。（默认只读，修改文件读写权限sudo chmod 777 *，或者直接用vim编辑器编辑）</p>
+<p>sphinx_train.cfg默认使用coni模型，用于单独的指令识别，semi半连续模型，PTM用于半连续模型，使用更大的数据库。我们需要半连续模型识别不同的语句，注释掉coni，删除semi注释。</p>
+<p><a href="https://sm.ms/image/NU4bOE7dTlVCBtW" target="_blank"><img src="https://s2.loli.net/2022/07/04/NU4bOE7dTlVCBtW.png" ></a></p>
+<p>其他参数修改参考官网</p>
+<h4 id="开始训练"><a href="#开始训练" class="headerlink" title="开始训练"></a>开始训练</h4><p>进入数据库文件夹your_db，打开terminal</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sphinxtrain run</span><br></pre></td></tr></table></figure>
+
+<p><strong>此处可能会报路径错误，改脚本</strong></p>
+<p>根据提示，脚本里的参数写的是etc/sphinx_train.cfg，导致无法识别目录。进入/usr/local/lib/sphinxtrain/scrips/000.comp_feat，目录下有两个文件，根据错误提示，在slave_feat.pl的50行，将etc/sphinx_train.cfg修改为./etc/sphinx_train.cfg。后续会<strong>持续遇到参数错误的问题</strong>，遇到报这个错就进入报错文件修改参数，全部改掉。</p>
+<h4 id="其他报错"><a href="#其他报错" class="headerlink" title="其他报错"></a>其他报错</h4><p>missing a newline at end of file: 在文件最后打个空格，不要回车</p>
+<p><a target="_blank" rel="noopener" href="https://sourceforge.net/p/cmusphinx/discussion/help/thread/69c422db/?limit=25#813d/d7ab">pocketsphinx初始化失败：79</a></p>
+<p>Linux 修改文件读写权限：sudo chmod 777 *</p>
+<p>sphinxtrain run过程中的会输出html文件的报告，报错就打开html查看报告，根据log文件来修改</p>
+<h4 id="训练结果"><a href="#训练结果" class="headerlink" title="训练结果"></a>训练结果</h4><p>训练过程中的输出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Baum Welch starting for 2 Gaussian(s), iteration: 3 (1 of 1)</span><br><span class="line">0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%</span><br><span class="line">Normalization for iteration: 3</span><br><span class="line">Current Overall Likelihood Per Frame = 30.6558644286942</span><br><span class="line">Convergence Ratio = 0.633864444461992</span><br><span class="line">Baum Welch starting for 2 Gaussian(s), iteration: 4 (1 of 1)</span><br><span class="line">0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%</span><br><span class="line">Normalization for iteration: 4</span><br></pre></td></tr></table></figure>
+
+<p>训练完成后会自动运行解码脚本测试正确率,打开result文件夹的align文件可以查看解码具体结果。</p>
+<p>手动解码<code>sphinxtrain -s decode run</code></p>
+<p>训练后的模型在</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model_parameters/`&lt;your_db_name&gt;`.cd_cont_`&lt;number_of senones&gt;`</span><br></pre></td></tr></table></figure>
+
+<p>或在</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model_parameters/`&lt;your_db_name&gt;`.cd_semi_`&lt;number_of senones&gt;`</span><br></pre></td></tr></table></figure>
+
+<p>应包括如下文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mdef</span><br><span class="line">feat.params</span><br><span class="line">mixture_weights</span><br><span class="line">means</span><br><span class="line">noisedict</span><br><span class="line">transition_matrices</span><br><span class="line">variances</span><br></pre></td></tr></table></figure>
+
+<p>最后应用时只需要这个文件夹和dic字典文件，dmp语言模型。</p>
+<p>具体应用以android为例，放在下一篇。</p>
 
     </article>
     <!-- license -->
@@ -534,17 +610,12 @@
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2021/11/30/%E8%BD%AC%E6%8D%A2/" title="知乎搬的">
-                    <div class="nextTitle">知乎搬的</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2021/10/19/%E5%85%89%E6%A0%85%E5%8C%96-%E5%A4%9A%E8%BE%B9%E5%BD%A2/" title="计算机图形学-光栅化-多边形">
-                    <div class="prevTitle">计算机图形学-光栅化-多边形</div>
+                <a href="/2022/06/14/%E3%80%8C%E6%88%91%E4%BB%AC%E5%B7%B2%E7%84%B6%E5%9C%A8%E8%88%9E%E5%8F%B0%E4%B9%8B%E4%B8%8A%E3%80%8D%E5%B0%91%E5%A5%B3%E6%AD%8C%E5%89%A7%E5%89%A7%E5%9C%BA%E7%89%88/" title="「我们已然在舞台之上」少女歌剧剧场版">
+                    <div class="prevTitle">「我们已然在舞台之上」少女歌剧剧场版</div>
                 </a>
             
         </li>
@@ -677,7 +748,7 @@
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                
+                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#windows%E4%B8%8B%E5%87%86%E5%A4%87%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">windows下准备语言模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#windows%E5%87%86%E5%A4%87%E5%BE%85%E8%AE%AD%E7%BB%83%E7%9A%84%E5%A3%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B%E6%95%B0%E6%8D%AE"><span class="toc-number">3.</span> <span class="toc-text">windows准备待训练的声学模型数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-%E4%B8%8B%E8%AE%AD%E7%BB%83%E5%A3%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B"><span class="toc-number">4.</span> <span class="toc-text">Linux 下训练声学模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Sphinxbase"><span class="toc-number">4.1.</span> <span class="toc-text">安装Sphinxbase</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">4.2.</span> <span class="toc-text">添加环境变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8A%8Awindows%E4%B8%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E7%A7%BB%E5%8A%A8%E5%88%B0ubuntu"><span class="toc-number">4.3.</span> <span class="toc-text">把windows下的数据库移动到ubuntu</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E8%AE%AD%E7%BB%83%E5%8F%82%E6%95%B0"><span class="toc-number">4.4.</span> <span class="toc-text">设置训练参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E8%AE%AD%E7%BB%83"><span class="toc-number">4.5.</span> <span class="toc-text">开始训练</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E6%8A%A5%E9%94%99"><span class="toc-number">4.6.</span> <span class="toc-text">其他报错</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83%E7%BB%93%E6%9E%9C"><span class="toc-number">4.7.</span> <span class="toc-text">训练结果</span></a></li></ol></li></ol>
             </div>
         
         <!-- sidebar -->
