@@ -20,15 +20,15 @@
         <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
     
     <meta name="description" content="Great ideals but through selfless struggle and sacrifice to achieve.">
-    <meta name="description" content="Nodejs免安装手动配置">
+    <meta name="description" content="记录Nodejs安装">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NodeJS手动安装">
 <meta property="og:url" content="http://blueskybone.github.io/2021/09/24/windows%E7%B3%BB%E7%BB%9F%E4%B8%8BNodeJS%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85/index.html">
 <meta property="og:site_name" content="BLUESKYBONE">
-<meta property="og:description" content="Nodejs免安装手动配置">
+<meta property="og:description" content="记录Nodejs安装">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-09-23T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-03-18T11:11:16.812Z">
+<meta property="article:modified_time" content="2022-07-13T04:52:18.246Z">
 <meta property="article:author" content="BlueSkyBone">
 <meta property="article:tag" content="教程">
 <meta name="twitter:card" content="summary">
@@ -337,7 +337,7 @@
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">311</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">293</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -498,24 +498,24 @@
             <div class="container container-unloaded">
                 <main class="main post-page">
     <article class="article-entry">
-        <p>Nodejs免安装手动配置</p>
+        <p>记录Nodejs安装</p>
 <span id="more"></span>
 
 <p>Nodejs版本太新，需要降级到老版本。有三种途径：</p>
 <p>1.使用 <code>nvm</code> 工具来管理 <code>Node.js</code>。这是 <a target="_blank" rel="noopener" href="https://github.com/coreybutler/nvm-windows">Windows 版本</a>。</p>
 <p>2.下载NodeJS的安装版。最新版在<a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">NodeJS官网</a>，老版本<a target="_blank" rel="noopener" href="https://nodejs.org/download/release/">下载地址</a></p>
 <p>3.下载压缩包手动配置。</p>
-<p>nvm老是出问题，无论我怎么检查路径名称总是要报错exit status 1，无奈卸载。下载msi安装，进去就提示系统已经安装了最新版本，然后直接退出安装了。所有NodeJS文件夹和环境变量都删干净了，我也不知道他怎么检测出来的……只能手动安装了。</p>
+<p>nvm老出问题，总是要报错exit status 1，无奈卸载。下载msi安装，进去就提示系统已经安装了最新版本，然后直接退出安装了。所有NodeJS文件夹和环境变量都删干净了，不知道他怎么检测出来的……只能手动安装了。</p>
 <h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>1.下载win-X64.zip文件，解压到D盘，文件夹重命名为NodeJS。</p>
 <p>2.添加<code>D:\NodeJS</code>和<code>D:\NodeJS\node_modules\npm</code>到系统环境变量PATH。</p>
-<p>3.打开cmd，输入<code>node -v</code>和<code>npm -v</code>测试版本。</p>
+<p>3.打cmd，输入<code>node -v</code>和<code>npm -v</code>测试版本。</p>
 <p>4.安装express。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install express -g //安装最新版express</span><br><span class="line">npm install express@3.4.0 -g //安装指定版本express</span><br><span class="line"></span><br><span class="line">npm remove express -g //删除express</span><br></pre></td></tr></table></figure>
 
 <p>新版本的NodeJS集成了npm，不用再下载安装。</p>
 <p><a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/download/releases/">node.js和npm版本对应表</a></p>
 <p>npm 更改版本命令</p>
-<p>npm install -g <a href="mailto:&#x6e;&#112;&#109;&#x40;&#55;&#x2e;&#x37;&#46;&#54;">&#x6e;&#112;&#109;&#x40;&#55;&#x2e;&#x37;&#46;&#54;</a></p>
+<p>npm install -g <a href="mailto:&#x6e;&#112;&#x6d;&#64;&#x37;&#x2e;&#x37;&#x2e;&#x36;">&#x6e;&#112;&#x6d;&#64;&#x37;&#x2e;&#x37;&#x2e;&#x36;</a></p>
 <p>我的当前版本：node: ‘v15.14.0’, npm: ‘7.7.6’</p>
 
     </article>
@@ -534,8 +534,8 @@
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2021/09/08/%E3%80%8A%E6%9C%80%E5%90%8E%E4%B8%80%E6%9E%AA%E3%80%8B/" title="《最后一枪》">
-                    <div class="prevTitle">《最后一枪》</div>
+                <a href="/2021/09/05/%E8%AE%B0%E5%BD%95-LB9-5/" title="系统级编程笔记-9-5">
+                    <div class="prevTitle">系统级编程笔记-9-5</div>
                 </a>
             
         </li>
@@ -581,10 +581,6 @@
             
     
         
-            
-                <a href="mailto:702133105@qq.com" class="iconfont-archer email" title=email ></a>
-            
-        
     
         
             
@@ -616,10 +612,6 @@
     
         
     
-        
-            
-                <a href="https://space.bilibili.com/13957147" class="iconfont-archer bilibili" target="_blank" title=bilibili></a>
-            
         
     
         
@@ -827,197 +819,7 @@
         
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
     
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
         
         
@@ -1236,7 +1038,7 @@
     
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 41
+        Total : 29
         </div>
         <!-- search  -->
         
@@ -1264,12 +1066,6 @@
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">06/14</span>
-            <a class="archive-post-title" href="/2022/06/14/%E3%80%8C%E6%88%91%E4%BB%AC%E5%B7%B2%E7%84%B6%E5%9C%A8%E8%88%9E%E5%8F%B0%E4%B9%8B%E4%B8%8A%E3%80%8D%E5%B0%91%E5%A5%B3%E6%AD%8C%E5%89%A7%E5%89%A7%E5%9C%BA%E7%89%88/">列车终将驶向下一站，那么舞台呢？你们呢？</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
             <span class="archive-post-date">06/13</span>
             <a class="archive-post-title" href="/2022/06/13/%E3%80%8CI%20want%20to%20know%E3%80%8D/">「I want to know」</a>
         </li>
@@ -1282,8 +1078,8 @@
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">05/12</span>
-            <a class="archive-post-title" href="/2022/05/12/%E5%B0%91%E5%A5%B3%E2%98%86%E6%AD%8C%E5%89%A7Revue%20Starlight/">少女☆歌剧Revue Starlight</a>
+            <span class="archive-post-date">05/14</span>
+            <a class="archive-post-title" href="/2022/05/14/%E9%81%93%E5%BE%B7%E5%A0%95%E8%90%BD%E4%B8%8E%E7%9F%A5%E8%AF%86%E5%88%86%E5%AD%90/">道德堕落与知识分子</a>
         </li>
     
         
@@ -1294,14 +1090,14 @@
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">04/16</span>
-            <a class="archive-post-title" href="/2022/04/16/%E6%9D%82%E8%AE%B0-4-16/">杂记-4-16</a>
+            <span class="archive-post-date">04/20</span>
+            <a class="archive-post-title" href="/2022/04/20/%E6%B2%A1%E6%9C%89%E6%84%8F%E4%B9%89/">没有意义</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">04/10</span>
-            <a class="archive-post-title" href="/2022/04/10/Quartus%202%20web%20edition%E6%89%BE%E4%B8%8D%E5%88%B0%E5%99%A8%E4%BB%B6%E5%BA%93%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/">Quartus 2 web edition找不到器件库的解决办法</a>
+            <a class="archive-post-title" href="/2022/04/10/Quartus%202%20web%20edition%E6%89%BE%E4%B8%8D%E5%88%B0%E5%99%A8%E4%BB%B6%E5%BA%93%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/">Quartus 2 web edition找不到器件库</a>
         </li>
     
         
@@ -1313,7 +1109,7 @@
         
         <li class="archive-post-item">
             <span class="archive-post-date">03/31</span>
-            <a class="archive-post-title" href="/2022/03/31/Android-%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/">Android文档</a>
+            <a class="archive-post-title" href="/2022/03/31/Android-%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/">Android developers</a>
         </li>
     
         
@@ -1326,12 +1122,6 @@
         <li class="archive-post-item">
             <span class="archive-post-date">03/29</span>
             <a class="archive-post-title" href="/2022/03/29/Hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%8F%8A%E6%8E%A8%E9%80%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">Hexo常用命令及推送问题解决</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/26</span>
-            <a class="archive-post-title" href="/2022/03/26/%E6%9D%82%E8%AE%B0-3-26/">杂记-3-26</a>
         </li>
     
         
@@ -1353,12 +1143,6 @@
         </li>
     
         
-        <li class="archive-post-item">
-            <span class="archive-post-date">01/12</span>
-            <a class="archive-post-title" href="/2022/01/12/%E7%94%B0%E4%B8%AD%E9%9D%A9%E5%91%BD/">「ODD TAXI」田中革命</a>
-        </li>
-    
-        
             
             
                 
@@ -1369,20 +1153,8 @@
             
         
         <li class="archive-post-item">
-            <span class="archive-post-date">12/19</span>
-            <a class="archive-post-title" href="/2021/12/19/%E3%80%8A%E5%90%8A%E5%8F%A4%E6%88%98%E5%9C%BA%E6%96%87%E3%80%8B/">《吊古战场文》</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
             <span class="archive-post-date">12/18</span>
             <a class="archive-post-title" href="/2021/12/18/Do-not-go-gentle-into-that-good-night/">Do not go gentle into that good night</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/12</span>
-            <a class="archive-post-title" href="/2021/12/12/%E3%80%8A%E9%98%B3%E5%85%89%E4%B8%8B%E7%9A%84%E6%A2%A6%E3%80%8B/">《阳光下的梦》</a>
         </li>
     
         
@@ -1400,7 +1172,7 @@
         
         <li class="archive-post-item">
             <span class="archive-post-date">10/16</span>
-            <a class="archive-post-title" href="/2021/10/16/2021-10-16%E7%B3%BB%E7%BB%9F%E7%BA%A7%E7%BC%96%E7%A8%8B/">系统级编程</a>
+            <a class="archive-post-title" href="/2021/10/16/2021-10-16%E7%B3%BB%E7%BB%9F%E7%BA%A7%E7%BC%96%E7%A8%8B/">系统级编程-变量生命周期-内存分配</a>
         </li>
     
         
@@ -1423,12 +1195,6 @@
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">10/03</span>
-            <a class="archive-post-title" href="/2021/10/03/%E6%88%98%E5%A3%AB%E7%9A%84%E4%B8%80%E7%94%9F/">战士的一生</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
             <span class="archive-post-date">09/26</span>
             <a class="archive-post-title" href="/2021/09/26/%E3%80%8CA-LETTER%E3%80%8D/">「A-LETTER」</a>
         </li>
@@ -1441,38 +1207,14 @@
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">09/08</span>
-            <a class="archive-post-title" href="/2021/09/08/%E3%80%8A%E6%9C%80%E5%90%8E%E4%B8%80%E6%9E%AA%E3%80%8B/">《最后一枪》</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">09/08</span>
-            <a class="archive-post-title" href="/2021/09/08/%E3%80%8A%E5%B9%BF%E5%9C%BA%E3%80%8B/">《广场》</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">09/06</span>
-            <a class="archive-post-title" href="/2021/09/06/%E3%80%8A%E8%93%9D%E8%89%B2%E9%AA%A8%E5%A4%B4%E3%80%8B/">《蓝色骨头》</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
             <span class="archive-post-date">09/05</span>
-            <a class="archive-post-title" href="/2021/09/05/%E8%AE%B0%E5%BD%95-LB9-5/">系统级编程-9-5</a>
+            <a class="archive-post-title" href="/2021/09/05/%E8%AE%B0%E5%BD%95-LB9-5/">系统级编程笔记-9-5</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">08/25</span>
             <a class="archive-post-title" href="/2021/08/25/%E3%80%8A%E5%9B%9E%E7%AD%94%E3%80%8B/">《回答》</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">08/20</span>
-            <a class="archive-post-title" href="/2021/08/20/%E7%88%B1%E5%9B%BD%E8%80%85%E4%B9%8B%E6%AD%BB/">爱国者之死</a>
         </li>
     
         
@@ -1489,29 +1231,8 @@
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">08/17</span>
-            <a class="archive-post-title" href="/2021/08/17/%E7%87%83%E7%83%A7%E7%9A%84%E7%89%87%E6%AE%B5-EG5/">燃烧的片段-EG5</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
             <span class="archive-post-date">08/16</span>
             <a class="archive-post-title" href="/2021/08/16/%E6%82%BC%E5%BF%B5%E5%AD%9F%E5%88%9A/">悼念孟刚</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/04/16/%E9%81%93%E5%BE%B7%E5%A0%95%E8%90%BD%E4%B8%8E%E7%9F%A5%E8%AF%86%E5%88%86%E5%AD%90/">道德堕落与知识分子</a>
         </li>
     
     </div>
@@ -1519,11 +1240,6 @@
 
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
-        
-            <span class="sidebar-tag-name" data-tags="大三">
-                <span class="iconfont-archer">&#xe606;</span>
-                大三
-            </span>
         
             <span class="sidebar-tag-name" data-tags="Android">
                 <span class="iconfont-archer">&#xe606;</span>
@@ -1550,69 +1266,34 @@
                 JAVA
             </span>
         
-            <span class="sidebar-tag-name" data-tags="UC">
-                <span class="iconfont-archer">&#xe606;</span>
-                UC
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="Audio">
                 <span class="iconfont-archer">&#xe606;</span>
                 Audio
             </span>
         
-            <span class="sidebar-tag-name" data-tags="MSR">
-                <span class="iconfont-archer">&#xe606;</span>
-                MSR
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="生活">
-                <span class="iconfont-archer">&#xe606;</span>
-                生活
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="崔健">
-                <span class="iconfont-archer">&#xe606;</span>
-                崔健
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="李志">
-                <span class="iconfont-archer">&#xe606;</span>
-                李志
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="北岛">
-                <span class="iconfont-archer">&#xe606;</span>
-                北岛
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="杂谈">
-                <span class="iconfont-archer">&#xe606;</span>
-                杂谈
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="动画杂谈">
-                <span class="iconfont-archer">&#xe606;</span>
-                动画杂谈
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="燃烧的片段">
-                <span class="iconfont-archer">&#xe606;</span>
-                燃烧的片段
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="HTTP">
-                <span class="iconfont-archer">&#xe606;</span>
-                HTTP
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="计算机图形学">
-                <span class="iconfont-archer">&#xe606;</span>
-                计算机图形学
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="Haskell">
                 <span class="iconfont-archer">&#xe606;</span>
                 Haskell
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="系统级编程">
+                <span class="iconfont-archer">&#xe606;</span>
+                系统级编程
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="图形学">
+                <span class="iconfont-archer">&#xe606;</span>
+                图形学
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="文章">
+                <span class="iconfont-archer">&#xe606;</span>
+                文章
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="笔记">
+                <span class="iconfont-archer">&#xe606;</span>
+                笔记
             </span>
         
     </div>
@@ -1625,11 +1306,6 @@
 
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
-    
-        <span class="sidebar-category-name" data-categories="课堂笔记">
-            <span class="iconfont-archer">&#xe60a;</span>
-            课堂笔记
-        </span>
     
         <span class="sidebar-category-name" data-categories="教程">
             <span class="iconfont-archer">&#xe60a;</span>
@@ -1654,21 +1330,6 @@
         <span class="sidebar-category-name" data-categories="音乐">
             <span class="iconfont-archer">&#xe60a;</span>
             音乐
-        </span>
-    
-        <span class="sidebar-category-name" data-categories="生活">
-            <span class="iconfont-archer">&#xe60a;</span>
-            生活
-        </span>
-    
-        <span class="sidebar-category-name" data-categories="杂谈">
-            <span class="iconfont-archer">&#xe60a;</span>
-            杂谈
-        </span>
-    
-        <span class="sidebar-category-name" data-categories="燃烧的片段">
-            <span class="iconfont-archer">&#xe60a;</span>
-            燃烧的片段
         </span>
     
     </div>
