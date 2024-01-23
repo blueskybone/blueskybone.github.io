@@ -2,35 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Blog</title>
-    <link>https://localhost:1313/categories/</link>
+    <link>https://blueskybone.github.io/categories/</link>
     <description>Recent content in Categories on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 06 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 06 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blueskybone.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Untitled</title>
-      <link>https://localhost:1313/categories/untitled/</link>
+      <link>https://blueskybone.github.io/categories/untitled/</link>
       <pubDate>Wed, 06 Dec 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://localhost:1313/categories/untitled/</guid>
+      <guid>https://blueskybone.github.io/categories/untitled/</guid>
       <description></description>
     </item>
     
     <item>
       <title>others</title>
-      <link>https://localhost:1313/categories/others/</link>
+      <link>https://blueskybone.github.io/categories/others/</link>
       <pubDate>Thu, 19 Oct 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://localhost:1313/categories/others/</guid>
+      <guid>https://blueskybone.github.io/categories/others/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Haskell</title>
-      <link>https://localhost:1313/categories/haskell/</link>
+      <link>https://blueskybone.github.io/categories/haskell/</link>
       <pubDate>Thu, 23 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://localhost:1313/categories/haskell/</guid>
+      <guid>https://blueskybone.github.io/categories/haskell/</guid>
       <description></description>
     </item>
     
