@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>others on Blog</title>
+    <link>https://localhost:1313/categories/others/</link>
+    <description>Recent content in others on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 19 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://localhost:1313/categories/others/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>hugo 文本测试</title>
+      <link>https://localhost:1313/post/hugo%E6%96%87%E6%9C%AC%E6%B5%8B%E8%AF%95/</link>
+      <pubDate>Thu, 19 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://localhost:1313/post/hugo%E6%96%87%E6%9C%AC%E6%B5%8B%E8%AF%95/</guid>
+      <description>二级标题 三级标题 四级标题 #include &amp;lt;iostream&amp;gt; using namespace std; void fun1(){ std::cout&amp;lt;&amp;lt;&amp;#34;hugo classic&amp;#34;&amp;lt;&amp;lt;std::endl; } int main(){ auto a{0}; fun1(); } bold 加粗
+delete 删除
+link
+TODO：
+更换中英文字体。更换代码配色方案。调整英文文字间距。
+添加按钮切换黑暗模式。
+添加侧边栏大纲。</description>
+    </item>
+    
+  </channel>
+</rss>

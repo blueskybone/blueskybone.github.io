@@ -1,0 +1,10 @@
+html {
+    font-family: tahoma, arial, noto sans, noto sans cjk sc, apple color emoji, segoe ui emoji, segoe ui symbol, sans-serif;
+    font-size: 90%
+}
+
+code {
+    font-family: "jetBrains mono", "fira code", "source code pro", "Lucida Console", Monaco, monospace, sans-serif;
+    font-variant-ligatures: normal;
+    font-size: 90%;
+}

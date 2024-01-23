@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Blog</title>
+    <link>https://localhost:1313/post/</link>
+    <description>Recent content in Posts on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 06 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Untitled-00</title>
+      <link>https://localhost:1313/post/untitled-00/</link>
+      <pubDate>Wed, 06 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://localhost:1313/post/untitled-00/</guid>
+      <description>自地平线升起的铸物。
+与深渊相窥探的眼睛。
+见证长久命运的遗迹。
+人类前往未来的门扉。</description>
+    </item>
+    
+    <item>
+      <title>hugo 文本测试</title>
+      <link>https://localhost:1313/post/hugo%E6%96%87%E6%9C%AC%E6%B5%8B%E8%AF%95/</link>
+      <pubDate>Thu, 19 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://localhost:1313/post/hugo%E6%96%87%E6%9C%AC%E6%B5%8B%E8%AF%95/</guid>
+      <description>二级标题 三级标题 四级标题 #include &amp;lt;iostream&amp;gt; using namespace std; void fun1(){ std::cout&amp;lt;&amp;lt;&amp;#34;hugo classic&amp;#34;&amp;lt;&amp;lt;std::endl; } int main(){ auto a{0}; fun1(); } bold 加粗
+delete 删除
+link
+TODO：
+更换中英文字体。更换代码配色方案。调整英文文字间距。
+添加按钮切换黑暗模式。
+添加侧边栏大纲。</description>
+    </item>
+    
+    <item>
+      <title>learnyouahaskell</title>
+      <link>https://localhost:1313/post/learnhaskell/</link>
+      <pubDate>Thu, 23 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://localhost:1313/post/learnhaskell/</guid>
+      <description>&lt;p&gt;教材：&lt;a href=&#34;http://learnyouahaskell.com/&#34;&gt;learnyouahaskell&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;环境：&lt;a href=&#34;https://www.haskell.org/ghc/download_ghc_9_2_3.html#windows64&#34;&gt;Windows-GHC-9.23-Download&lt;/a&gt;  only need download GHC for windows cmd.&lt;/p&gt;
+&lt;p&gt;International week course&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
