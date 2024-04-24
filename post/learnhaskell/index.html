@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A simple, minimal blog for those who love text.">
+    <title>learnyouahaskell | Blog</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="https://blueskybone.github.io/css/theme-override.css"><link rel="stylesheet" href="https://blueskybone.github.io/css/atom-one-light.min.css">
+    <script src="https://blueskybone.github.io/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+   
+    <header>
+
+  <nav>
+    <ul>
+      
+      
+      <li class="pull-left ">
+        <a href="https://blueskybone.github.io/">~/blog</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/categories/">~/categories</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/links/">~/links</a>
+      </li>
+      
+
+      
+      
+      <li class="pull-right">
+        <a href="/about/">~/about</a>
+      </li>
+      
+      
+      <li class="pull-right">
+        <a href="https://github.com/blueskybone">~/github</a>
+      </li>
+      
+
+    </ul>
+  </nav>
+</header>
+
+  </head>
+  <body>
+    <br/>
+
+<div class="article-meta">
+<h1><span class="title">learnyouahaskell</span></h1>
+
+<h3 class="date">2020/07/23</h3>
+<p class="terms">
+  
+  
+  Categories: <a href="/categories/haskell">Haskell</a> 
+  
+  
+  
+  
+</p>
+</div>
+
+
+<div class="content-wrapper">
+  <main>
+    <p>教材：<a href="http://learnyouahaskell.com/">learnyouahaskell</a></p>
+<p>环境：<a href="https://www.haskell.org/ghc/download_ghc_9_2_3.html#windows64">Windows-GHC-9.23-Download</a>  only need download GHC for windows cmd.</p>
+<p>International week course</p>
+<h2 id="day1--task">DAY1  TASK</h2>
+<p>1.</p>
+<p>This task is meant to be solved with list comprehension.</p>
+<p>Write a function headOrLast :: [String] -&gt; Char -&gt; [String] that, given a list of strings and a character, evaluates to a list with all the strings of the input list that either begin or end with the input character.</p>
+<p>example:</p>
+<p>headOrLast [&quot;hello&quot;,&quot;old&quot;,&quot;friends&quot;] 'o'
+result:
+[&quot;hello&quot;, &quot;old&quot;]</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#a6e22e">headOrLast</span> <span style="color:#f92672">::</span> [<span style="color:#66d9ef">String</span>] <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">Char</span> <span style="color:#f92672">-&gt;</span> [<span style="color:#66d9ef">String</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">headOrLast</span> xs c <span style="color:#f92672">=</span> [ x <span style="color:#f92672">|</span> x <span style="color:#f92672">&lt;-</span> xs , head x <span style="color:#f92672">==</span> c <span style="color:#f92672">||</span> last x <span style="color:#f92672">==</span> c ]
+</span></span></code></pre></div><p>2.</p>
+<p>This task is meant to be solved with recursion.</p>
+<p>Write a function nextIsSmaller :: [Int] -&gt; [Int] that, given a list of numbers, produces a list with all elements of the input list such that the element is followed by a smaller number in the input list (the next number is greater).</p>
+<p>The numbers need to be in the same order relative to each other in the output list as they are in the input list.</p>
+<p>example:</p>
+<p>function call:
+nextIsGreater [0,5,2,3,2,2,3,1]
+result:
+[5,3,3]</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#a6e22e">nextIsSmaller</span> <span style="color:#f92672">::</span> [<span style="color:#66d9ef">Int</span>] <span style="color:#f92672">-&gt;</span> [<span style="color:#66d9ef">Int</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">nextIsSmaller</span>  <span style="color:#66d9ef">[]</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">[]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">nextIsSmaller</span>  [x] <span style="color:#f92672">=</span> <span style="color:#66d9ef">[]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">nextIsSmaller</span> (x<span style="color:#66d9ef">:</span>y<span style="color:#66d9ef">:</span>xy) <span style="color:#f92672">=</span> [y <span style="color:#f92672">|</span> x <span style="color:#f92672">&gt;</span> y] <span style="color:#f92672">++</span> nextIsSmaller(y<span style="color:#66d9ef">:</span>xy)
+</span></span></code></pre></div><h2 id="day2-notes--task">Day2 NOTES &amp; TASK</h2>
+<p>change if into | (like switch)</p>
+<h2 id="guards-are-indicated-by-pipes-that-follow-a-functions-name-and-its-parameters">Guards are indicated by pipes that follow a function's name and its parameters.</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#a6e22e">luck</span> <span style="color:#f92672">::</span> (<span style="color:#66d9ef">Integral</span> a )<span style="color:#f92672">=&gt;</span> a<span style="color:#f92672">-&gt;</span>a<span style="color:#f92672">-&gt;</span>a<span style="color:#f92672">-&gt;</span><span style="color:#66d9ef">String</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">luck</span> <span style="color:#ae81ff">7</span> <span style="color:#ae81ff">7</span> <span style="color:#ae81ff">7</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;lucky&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">luck</span> x y z <span style="color:#f92672">=</span> <span style="color:#66d9ef">if</span> (x<span style="color:#f92672">+</span>y<span style="color:#f92672">+</span>z) <span style="color:#f92672">==</span> <span style="color:#ae81ff">21</span> <span style="color:#66d9ef">then</span> <span style="color:#e6db74">&#34;total&#34;</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span><span style="color:#f92672">......</span>
+</span></span></code></pre></div><p>to</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#a6e22e">luck</span> <span style="color:#f92672">::</span> (<span style="color:#66d9ef">Integral</span> a )<span style="color:#f92672">=&gt;</span> a<span style="color:#f92672">-&gt;</span>a<span style="color:#f92672">-&gt;</span>a<span style="color:#f92672">-&gt;</span><span style="color:#66d9ef">String</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">luck</span> <span style="color:#ae81ff">7</span> <span style="color:#ae81ff">7</span> <span style="color:#ae81ff">7</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;lucky&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">luck</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34; all zero&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">luck</span> x y z
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">|</span> x<span style="color:#f92672">+</span>y<span style="color:#f92672">+</span>z <span style="color:#f92672">==</span> <span style="color:#ae81ff">21</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34; total&#34;</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">|</span> x<span style="color:#f92672">+</span>y<span style="color:#f92672">+</span>z <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">&amp;&amp;</span> x<span style="color:#f92672">+</span>y<span style="color:#f92672">+</span>z <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">21</span> <span style="color:#f92672">=</span><span style="color:#e6db74">&#34;getting closer&#34;</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">|</span> otherwise <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;not luck&#34;</span>
+</span></span></code></pre></div><p>using where statement to replace</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#a6e22e">luck</span> <span style="color:#f92672">::</span> (<span style="color:#66d9ef">Integral</span> a )<span style="color:#f92672">=&gt;</span> a<span style="color:#f92672">-&gt;</span>a<span style="color:#f92672">-&gt;</span>a<span style="color:#f92672">-&gt;</span><span style="color:#66d9ef">String</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">luck</span> x y z
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">|</span> sum <span style="color:#f92672">==</span> best <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34; total&#34;</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">|</span> sum <span style="color:#f92672">&gt;</span> lowLimit <span style="color:#f92672">&amp;&amp;</span> sum <span style="color:#f92672">&lt;</span> best <span style="color:#f92672">=</span><span style="color:#e6db74">&#34;getting closer&#34;</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">|</span> otherwise <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;not luck&#34;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">where</span> sum <span style="color:#f92672">=</span> x <span style="color:#f92672">+</span> y <span style="color:#f92672">+</span> z
+</span></span><span style="display:flex;"><span>       best <span style="color:#f92672">=</span> <span style="color:#ae81ff">21</span>
+</span></span><span style="display:flex;"><span>	   lowLimit <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
+</span></span></code></pre></div><h3 id="case-expressions">Case expressions</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#a6e22e">head2</span> <span style="color:#f92672">::</span> [a] <span style="color:#f92672">-&gt;</span> a  
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">head2</span> <span style="color:#66d9ef">[]</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">error</span> <span style="color:#e6db74">&#34;No head for empty lists!&#34;</span>  
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">head2</span> (x<span style="color:#66d9ef">:</span><span style="color:#66d9ef">_</span>) <span style="color:#f92672">=</span> x
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">head3</span> <span style="color:#f92672">::</span> [a] <span style="color:#f92672">-&gt;</span> a  
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">head3</span> xs <span style="color:#f92672">=</span> <span style="color:#66d9ef">case</span> xs <span style="color:#66d9ef">of</span> <span style="color:#66d9ef">[]</span> <span style="color:#f92672">-&gt;</span> <span style="color:#a6e22e">error</span> <span style="color:#e6db74">&#34;No head for empty lists!&#34;</span>  
+</span></span><span style="display:flex;"><span>                      (x<span style="color:#66d9ef">:</span><span style="color:#66d9ef">_</span>) <span style="color:#f92672">-&gt;</span> x  
+</span></span></code></pre></div><h3 id="recursion">Recursion</h3>
+<p>(<del>can used to replace for -</del>)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#a6e22e">maximum&#39;</span> <span style="color:#f92672">::</span> (<span style="color:#66d9ef">Ord</span> a) <span style="color:#f92672">=&gt;</span> [a] <span style="color:#f92672">-&gt;</span> a  
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">maximum&#39;</span> <span style="color:#66d9ef">[]</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">error</span> <span style="color:#e6db74">&#34;maximum of empty list&#34;</span>  
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">maximum&#39;</span> [x] <span style="color:#f92672">=</span> x  
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">maximum&#39;</span> (x<span style="color:#66d9ef">:</span>xs)   
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> x <span style="color:#f92672">&gt;</span> maxTail <span style="color:#f92672">=</span> x  
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> otherwise <span style="color:#f92672">=</span> maxTail  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">where</span> maxTail <span style="color:#f92672">=</span> maximum&#39; xs  
+</span></span></code></pre></div><h3 id="a-few-more-recursive-functions">A few more recursive functions</h3>
+<p>Now that we know how to generally think recursively, let's implement a few functions using recursion. First off, we'll implement <strong>replicate</strong>. <strong>replicate</strong> takes an <strong>Int</strong> and some element and returns a list that has several repetitions of the same element. For instance, <strong>replicate 3 5</strong> returns <strong>[5,5,5]</strong>. Let's think about the edge condition. My guess is that the edge condition is 0 or less. If we try to replicate something zero times, it should return an empty list. Also for negative numbers, because it doesn't really make sense.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#a6e22e">replicate&#39;</span> <span style="color:#f92672">::</span> (<span style="color:#66d9ef">Num</span> i, <span style="color:#66d9ef">Ord</span> i) <span style="color:#f92672">=&gt;</span> i <span style="color:#f92672">-&gt;</span> a <span style="color:#f92672">-&gt;</span> [a]  
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">replicate&#39;</span> n x  
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> n <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>    <span style="color:#f92672">=</span> <span style="color:#66d9ef">[]</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> otherwise <span style="color:#f92672">=</span> x<span style="color:#66d9ef">:</span>replicate&#39; (n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) x  
+</span></span></code></pre></div><p>Next up, we'll implement <strong>take</strong>. It takes a certain number of elements from a list. For instance, <strong>take 3 [5,4,3,2,1]</strong> will return <strong>[5,4,3]</strong>. If we try to take 0 or less elements from a list, we get an empty list. Also if we try to take anything from an empty list, we get an empty list. Notice that those are two edge conditions right there. So let's write that out:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#a6e22e">take&#39;</span> <span style="color:#f92672">::</span> (<span style="color:#66d9ef">Num</span> i, <span style="color:#66d9ef">Ord</span> i) <span style="color:#f92672">=&gt;</span> i <span style="color:#f92672">-&gt;</span> [a] <span style="color:#f92672">-&gt;</span> [a] 
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">take&#39;</span> n <span style="color:#66d9ef">_</span> 
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">|</span> n <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>  <span style="color:#f92672">=</span> <span style="color:#66d9ef">[]</span> 
+</span></span><span style="display:flex;"><span> take&#39; <span style="color:#66d9ef">_</span> <span style="color:#66d9ef">[]</span>   <span style="color:#f92672">=</span> <span style="color:#66d9ef">[]</span> 
+</span></span><span style="display:flex;"><span> take&#39; n (x<span style="color:#66d9ef">:</span>xs) <span style="color:#f92672">=</span> x <span style="color:#66d9ef">:</span> take&#39; (n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) xs 
+</span></span></code></pre></div><h3 id="partern">Partern</h3>
+<p>(x:xs) list with items</p>
+<h3 id="lambda">Lambda</h3>
+<p>Lambdas are basically anonymous functions that are used because we need some functions only once. Normally, we make a lambda with the sole purpose of passing it to a higher-order function. To make a lambda, we write a **(because it kind of looks like the greek letter lambda if you squint hard enough) and then we write the parameters, separated by spaces. After that comes a <strong>-&gt;</strong> and then the function body. We usually surround them by parentheses, because otherwise they extend all the way to the right.</p>
+<p>If you look about 5 inches up, you'll see that we used a <em>where</em> binding in our <strong>numLongChains</strong> function to make the <strong>isLong</strong> function for the sole purpose of passing it to <strong>filter</strong>. Well, instead of doing that, we can use a lambda:</p>
+<h3 id="function-application-with-">Function application with $</h3>
+<p>Alright, next up, we'll take a look at the <strong>$</strong> function, also called <em>function application</em>. First of all, let's check out how it's defined:</p>
+<h3 id="function-composition">Function composition</h3>
+<p>In mathematics, function composition is defined like this:  (f . g)(x) = f(g(x)) , meaning that composing two functions produces a new function that, when called with a parameter, say, <em>x</em> is the equivalent of calling <em>g</em> with the parameter <em>x</em> and then calling the <em>f</em> with that result.</p>
+<p>In Haskell, function composition is pretty much the same thing. We do function composition with the <strong>.</strong> function, which is defined like so:</p>
+<pre tabindex="0"><code>(.) :: (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c 
+
+f . g = \x -&gt; f (g x) 
+</code></pre><p>short name of packege:</p>
+<p>import Data.List as L</p>
+<p>L.nub $ L.sort &quot;hajsdsjhzcjs&quot;</p>
+<h3 id="day2-task">Day2 Task</h3>
+<p>3.</p>
+<p>Let's suppose that we roll a set of 3 dices. Each one gives a value from 1 to 6.</p>
+<p>If you get three values 6, then you get 100 points</p>
+<p>Otherwise, if you get three times the same value, you get 3*(sum of dice values), e.g. three fives gives you 3*(5+5+5) = 45</p>
+<p>Otherwise, if you get a pair, then you get the value of the pair doubled added to the third value, e.g if you get 4,4,3, you get 2*(4+4)+3 = 19</p>
+<p>Otherwise, you get the sum of the dice values, e.g. 1,3,5 gives you 1+3+5 = 9.</p>
+<p>Write a function that, given three dice values (Ints), calculates the points.</p>
+<p>This task is suitable for pattern matching and guards.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#75715e">-- Task3</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">getPoints</span> <span style="color:#f92672">::</span> <span style="color:#66d9ef">Int</span> <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">Int</span> <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">Int</span> <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">Int</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">getPoints</span> <span style="color:#ae81ff">6</span> <span style="color:#ae81ff">6</span> <span style="color:#ae81ff">6</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span> 
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">getPoints</span> x y z
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">|</span>x <span style="color:#f92672">==</span> y <span style="color:#f92672">&amp;&amp;</span> y <span style="color:#f92672">==</span> z <span style="color:#f92672">=</span> x <span style="color:#f92672">*</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">+</span> y <span style="color:#f92672">*</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">+</span> z <span style="color:#f92672">*</span> <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">|</span>x <span style="color:#f92672">==</span> y <span style="color:#f92672">&amp;&amp;</span> y <span style="color:#f92672">/=</span> z <span style="color:#f92672">=</span> x <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> y <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> x
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">|</span>x <span style="color:#f92672">==</span> z <span style="color:#f92672">&amp;&amp;</span> y <span style="color:#f92672">/=</span> z <span style="color:#f92672">=</span> x <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> y <span style="color:#f92672">+</span> z <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">|</span>x <span style="color:#f92672">/=</span> y <span style="color:#f92672">&amp;&amp;</span> y <span style="color:#f92672">==</span> z <span style="color:#f92672">=</span> x <span style="color:#f92672">+</span> y <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> z <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">|</span>otherwise <span style="color:#f92672">=</span> sum
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">where</span> sum <span style="color:#f92672">=</span> x <span style="color:#f92672">+</span> y <span style="color:#f92672">+</span> z
+</span></span></code></pre></div><p>4.</p>
+<p>This task is suitable for a recursive solution. This is a bit more difficult task.</p>
+<p>We say that character pair (c1,c2) appears in string s with gap g, if c1 is before c2 and there are exactly g characters between c1 and c2 in s.</p>
+<p>Write a function gap :: (Char, Char) -&gt; Int -&gt; String -&gt; Int that, given a pair (c1,c2), a gap g and a string s returns an Int telling how many times (c1,c2) appear in s with gap g.</p>
+<p>For example:</p>
+<p>function call:
+gap ('a','b') 1 &quot;aaabbb&quot;
+result:
+2</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span> <span style="color:#75715e">-- Task4</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">gap</span> <span style="color:#f92672">::</span> (<span style="color:#66d9ef">Char</span>, <span style="color:#66d9ef">Char</span>) <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">Int</span> <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">String</span> <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">Int</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">gap</span> (c1, c2) g <span style="color:#66d9ef">[]</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">gap</span> (c1, c2) g [x] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">gap</span> (c1, c2) g (x<span style="color:#66d9ef">:</span>xs)
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">|</span>(length xs) <span style="color:#f92672">&lt;=</span> g <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">|</span> x <span style="color:#f92672">==</span> c1 <span style="color:#f92672">&amp;&amp;</span> (xs <span style="color:#f92672">!!</span> g) <span style="color:#f92672">==</span> c2 <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> gap (c1, c2) g (xs)
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">|</span> otherwise <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">+</span> gap (c1, c2) g (xs)
+</span></span></code></pre></div><h2 id="day3-notes-task">Day3 NOTES &amp;TASK</h2>
+<h3 id="datachar">Data.Char</h3>
+<p>The <strong>Data.Char</strong> module does what its name suggests. It exports functions that deal with characters. It's also helpful when filtering and mapping over strings because they're just lists of characters.</p>
+<p>Data.Map</p>
+<p>Data.Set</p>
+<h3 id="make-your-module">Make your module</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#66d9ef">module</span> Geometry  
+</span></span><span style="display:flex;"><span>( <span style="color:#a6e22e">sphereVolume</span>  
+</span></span><span style="display:flex;"><span>, <span style="color:#a6e22e">sphereArea</span>  
+</span></span><span style="display:flex;"><span>, <span style="color:#a6e22e">cubeVolume</span>  
+</span></span><span style="display:flex;"><span>, <span style="color:#a6e22e">cubeArea</span>  
+</span></span><span style="display:flex;"><span>, <span style="color:#a6e22e">cuboidArea</span>  
+</span></span><span style="display:flex;"><span>, <span style="color:#a6e22e">cuboidVolume</span>  
+</span></span><span style="display:flex;"><span>) <span style="color:#66d9ef">where</span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">sphereVolume</span> <span style="color:#f92672">::</span> <span style="color:#66d9ef">Float</span> <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">Float</span>  
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">sphereVolume</span> radius <span style="color:#f92672">=</span> (<span style="color:#ae81ff">4.0</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">3.0</span>) <span style="color:#f92672">*</span> pi <span style="color:#f92672">*</span> (radius <span style="color:#f92672">^</span> <span style="color:#ae81ff">3</span>)  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">sphereArea</span> <span style="color:#f92672">::</span> <span style="color:#66d9ef">Float</span> <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">Float</span>  
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">sphereArea</span> radius <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span> <span style="color:#f92672">*</span> pi <span style="color:#f92672">*</span> (radius <span style="color:#f92672">^</span> <span style="color:#ae81ff">2</span>)  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">cubeVolume</span> <span style="color:#f92672">::</span> <span style="color:#66d9ef">Float</span> <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">Float</span>  
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">cubeVolume</span> side <span style="color:#f92672">=</span> cuboidVolume side side side  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">cubeArea</span> <span style="color:#f92672">::</span> <span style="color:#66d9ef">Float</span> <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">Float</span>  
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">cubeArea</span> side <span style="color:#f92672">=</span> cuboidArea side side side  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">cuboidVolume</span> <span style="color:#f92672">::</span> <span style="color:#66d9ef">Float</span> <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">Float</span> <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">Float</span> <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">Float</span>  
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">cuboidVolume</span> a b c <span style="color:#f92672">=</span> rectangleArea a b <span style="color:#f92672">*</span> c  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">cuboidArea</span> <span style="color:#f92672">::</span> <span style="color:#66d9ef">Float</span> <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">Float</span> <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">Float</span> <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">Float</span>  
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">cuboidArea</span> a b c <span style="color:#f92672">=</span> rectangleArea a b <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> rectangleArea a c <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> rectangleArea c b <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">rectangleArea</span> <span style="color:#f92672">::</span> <span style="color:#66d9ef">Float</span> <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">Float</span> <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">Float</span>  
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">rectangleArea</span> a b <span style="color:#f92672">=</span> a <span style="color:#f92672">*</span> b  
+</span></span></code></pre></div><h3 id="making-our-own-types-and-typeclasses">Making Our Own Types and Typeclasses</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#66d9ef">data</span> <span style="color:#66d9ef">Shape</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">Circle</span> <span style="color:#66d9ef">Float</span> <span style="color:#66d9ef">Float</span> <span style="color:#66d9ef">Float</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">Rectangle</span> <span style="color:#66d9ef">Float</span> <span style="color:#66d9ef">Float</span> <span style="color:#66d9ef">Float</span> <span style="color:#66d9ef">Float</span>  
+</span></span></code></pre></div><h3 id="day3-task">Day3 Task</h3>
+<p>5.</p>
+<p>Using the Data keyword, define BicycleType that has constructors for values ElectricBicycle, NormalBicycle. Derive instances Show, Eq and Read for it.</p>
+<p>Using the type keyword, define a type synonym for Integer: BicycleNumber and for String: BicycleName</p>
+<p>Use the record syntax to define a Bicycle type for storing bicycles, they should have a bicycleName (String), a bicycleNumber (BicycleNumber) and a bicycleType (BicycleType).</p>
+<p>Write a function
+makeBicycle :: BicycleType -&gt; BicycleNumber -&gt; BicycleName
+that creates a Bicycle if the number is not negative, otherwise it throws an error:
+error &quot;Negative bicycle number&quot;</p>
+<p>6.</p>
+<p>make Bicycle a member of the Eq typeclass so that if name and type are equal, the bicycles are considered equal (number may be different).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span>  <span style="color:#75715e">-- Task 5 --</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">data</span> <span style="color:#66d9ef">BicycleType</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">ElectricBicycle</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">NormalBicycle</span> <span style="color:#66d9ef">deriving</span> (<span style="color:#66d9ef">Show</span>, <span style="color:#66d9ef">Eq</span>, <span style="color:#66d9ef">Read</span>) 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#66d9ef">BicycleNumber</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">Integer</span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#66d9ef">BicycleName</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">String</span>  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">data</span> <span style="color:#66d9ef">Bicycle</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">Bicycle</span> { bicycleName <span style="color:#f92672">::</span> <span style="color:#66d9ef">String</span>  
+</span></span><span style="display:flex;"><span>                      , bicycleNumber <span style="color:#f92672">::</span> <span style="color:#66d9ef">BicycleNumber</span>  
+</span></span><span style="display:flex;"><span>                      , bicycleType <span style="color:#f92672">::</span> <span style="color:#66d9ef">BicycleType</span>  
+</span></span><span style="display:flex;"><span>                       } <span style="color:#66d9ef">deriving</span> (<span style="color:#66d9ef">Show</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">makeBicycle</span> <span style="color:#f92672">::</span> <span style="color:#66d9ef">BicycleType</span> <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">BicycleNumber</span> <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">BicycleName</span> <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">Bicycle</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">makeBicycle</span> a b c
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> b <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">error</span> <span style="color:#e6db74">&#34;Negative bicycle number&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> otherwise <span style="color:#f92672">=</span> <span style="color:#66d9ef">Bicycle</span>{bicycleName <span style="color:#f92672">=</span> c, bicycleNumber <span style="color:#f92672">=</span> b, bicycleType <span style="color:#f92672">=</span> a}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">getBicycle</span> <span style="color:#f92672">::</span> <span style="color:#66d9ef">Bicycle</span> <span style="color:#f92672">-&gt;</span> (<span style="color:#66d9ef">String</span>, <span style="color:#66d9ef">BicycleType</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">getBicycle</span> a <span style="color:#f92672">=</span> ( bicycleName a, bicycleType a )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Task 6 --</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">instance</span> <span style="color:#66d9ef">Eq</span> <span style="color:#66d9ef">Bicycle</span> <span style="color:#66d9ef">where</span>
+</span></span><span style="display:flex;"><span> x <span style="color:#f92672">==</span> y <span style="color:#f92672">=</span> (getBicycle x) <span style="color:#f92672">==</span> (getBicycle y)
+</span></span></code></pre></div><p>task 6: In the beginning,  I focus on how to access the element in class Bicycle, I soon realized that this was futile. I used to compare haskell with C or Java. finally, I solved it using functional programming thinking. replace the elem with a sentence <code>getBicycle x</code>.</p>
+<h2 id="day4-task">Day4 Task</h2>
+<ol start="7">
+<li>(One task worth 10 points)</li>
+</ol>
+<p>Make a program that starts by reading a Tree Int from a text file (like the one written by write_init_tree.hs) and then reads commands from the command line and performing the appropriate task:</p>
+<p>find i
+-- finds the item indicated by i and tells if it is found or not, one of
+i is in the tree
+i is not in the tree
+-- where i is int given in the find command</p>
+<p>add i
+-- inserts i in the tree</p>
+<p>quit
+-- asks: Save the tree? Y/N
+-- if the answer is Y, it saves the tree and quits
+-- if the answer is N, it does not save the tree and quit</p>
+<p>There is no need to handle incorrect inputs.
+You should use the tree.hs by having
+import Tree
+in your program.</p>
+<p>Only submit your program file, and use tree.hs exactly as you received it in source.zip
+Name your file as before.
+write_init_tree.hs and search_tree.hs will give you useful bits of code.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#75715e">-- Task 7 </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Sorry I didn&#39;t work it out </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- main, do block, let, IO, Type are hard to understand in haskell and functional programming . </span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> System.IO
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> System.Directory  
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> Tree
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> Data.List 
+</span></span><span style="display:flex;"><span>   
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">myTree</span> <span style="color:#f92672">=</span> treeInsert <span style="color:#e6db74">&#34;4&#34;</span> <span style="color:#f92672">$</span> treeInsert <span style="color:#e6db74">&#34;8&#34;</span> <span style="color:#f92672">$</span> treeInsert <span style="color:#e6db74">&#34;1&#34;</span> <span style="color:#f92672">$</span> treeInsert <span style="color:#e6db74">&#34;5&#34;</span> <span style="color:#66d9ef">EmptyTree</span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e">--myTree = treeInsert 4 $ treeInsert 8 $ treeInsert 1 $ treeInsert 5 EmptyTree</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">--myTree =  Node 5 (Node 1 EmptyTree (Node 4 EmptyTree EmptyTree)) (Node 8 EmptyTree EmptyTree) </span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">main</span> <span style="color:#f92672">=</span>  <span style="color:#66d9ef">do</span>  
+</span></span><span style="display:flex;"><span>    putStrLn <span style="color:#e6db74">&#34;what number do you want to find? &#34;</span> 
+</span></span><span style="display:flex;"><span>    number <span style="color:#f92672">&lt;-</span> getLine      
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> myTree <span style="color:#f92672">=</span> myTree  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> ( treeElem number myTree ) <span style="color:#f92672">==</span> <span style="color:#66d9ef">True</span>  
+</span></span><span style="display:flex;"><span>       <span style="color:#66d9ef">then</span> <span style="color:#66d9ef">do</span> putStrLn ( (show number) <span style="color:#f92672">++</span> <span style="color:#e6db74">&#34;is in the tree&#34;</span> ) 
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">do</span> putStrLn ( (show number) <span style="color:#f92672">++</span> <span style="color:#e6db74">&#34;is not in the tree&#34;</span> )   
+</span></span><span style="display:flex;"><span>    putStrLn <span style="color:#e6db74">&#34;what number do you want to inserts in the tree? &#34;</span> 
+</span></span><span style="display:flex;"><span>    numInsert <span style="color:#f92672">&lt;-</span> getLine 
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> numInsert <span style="color:#f92672">=</span> read numInsert 
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> myTree <span style="color:#f92672">=</span> treeInsert numInsert myTree  
+</span></span><span style="display:flex;"><span>    putStrLn <span style="color:#e6db74">&#34;do you want to save the tree to &#39;myTree.txt&#39;? Y/N&#34;</span>  
+</span></span><span style="display:flex;"><span>    choice <span style="color:#f92672">&lt;-</span> getLine 
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (choice <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;Y&#34;</span>)  
+</span></span><span style="display:flex;"><span>         <span style="color:#66d9ef">then</span> writeFile <span style="color:#e6db74">&#34;myTree.txt&#34;</span> (show myTree)  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> putStrLn ( <span style="color:#e6db74">&#34;quit without save.&#34;</span> ) 
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	
+</span></span></code></pre></div><h2 id="final-exam">FINAL EXAM</h2>
+<p>1.Write a Haskell function that, given a string s and a character c, returns an Int telling how  many times c appears in s.  Your functions name and type should be:</p>
+<p>task1 :: String -&gt; Char -&gt; Int</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#75715e">-- Task1</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">task1</span> <span style="color:#f92672">::</span> <span style="color:#66d9ef">String</span> <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">Char</span> <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">Int</span> 
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">task1</span> <span style="color:#66d9ef">[]</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">task1</span> [a] b
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">|</span> a <span style="color:#f92672">==</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">|</span> a <span style="color:#f92672">/=</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>  
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">task1</span> (x<span style="color:#66d9ef">:</span>xs) b
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">|</span> x <span style="color:#f92672">==</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> task1 xs b 
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">|</span> x <span style="color:#f92672">/=</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">+</span> task1 xs b  
+</span></span></code></pre></div><p>2.Make a function that, given two lists of items of type Maybe [Int], returns all such ints that  appear in a Just in the first list and they are greater than all the ints appearing in a Just in the  second list.</p>
+<p>For example if the input is:  [Just 1, Just 2, Just 4, Just 100] [Just 2, Nothing, Just 3, Just 3]<br>
+then the output should be [4,100]. Your functions name and type should be
+task2 :: [Maybe Int] -&gt; [Maybe Int] -&gt; [Int</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#75715e">-- Task2</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">task2</span> <span style="color:#f92672">::</span> [<span style="color:#66d9ef">Maybe</span> <span style="color:#66d9ef">Int</span>] <span style="color:#f92672">-&gt;</span> [<span style="color:#66d9ef">Maybe</span> <span style="color:#66d9ef">Int</span>] <span style="color:#f92672">-&gt;</span> [<span style="color:#66d9ef">Int</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">task2</span> <span style="color:#66d9ef">[]</span> ys <span style="color:#f92672">=</span> <span style="color:#66d9ef">[]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">task2</span> xs ys <span style="color:#f92672">=</span> [fromJust x <span style="color:#f92672">|</span> x <span style="color:#f92672">&lt;-</span> xs, myCom x ys ] 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">myCom</span> <span style="color:#f92672">::</span> <span style="color:#66d9ef">Maybe</span> <span style="color:#66d9ef">Int</span> <span style="color:#f92672">-&gt;</span> [<span style="color:#66d9ef">Maybe</span> <span style="color:#66d9ef">Int</span>] <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">Bool</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">myCom</span> a [x] <span style="color:#f92672">=</span> (a <span style="color:#f92672">&gt;</span> x)  
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">myCom</span> a (x<span style="color:#66d9ef">:</span>xs) <span style="color:#f92672">=</span> (a <span style="color:#f92672">&gt;</span> x) <span style="color:#f92672">&amp;&amp;</span> myCom a xs 
+</span></span></code></pre></div><p>3.IntDistCalculable typeclass membership needs a function for calculating an integer distance  between two values. Make Bool, Integer, Double and Maybe a instances of IntDistCalculable in the following  way:</p>
+<p>For Bool, the distance for different values is 1 and for the same values it is 0. E.g. integerDist True True returns 0.</p>
+<p>For Integer, the distance is the absolute value of the difference.  E.g. integerDist (-10) 10 returns 20.</p>
+<p>For Double, the distance is the absolute value of the rounded difference. E.g. integerDist 1.4 2.5 returns 1.</p>
+<p>For Maybe a, the type variable a is required to be an instance of IntDistCalculable  and the distance is calculated using the implementation of integerDist for it. If one or both of the values are Nothing then the result is 0. E.g. integerDist (Just True) (Just False) returns 1. The definition for IntDistCalculable is given below: class IntDistCalculable a where integerDist :: a -&gt; a -&gt; Intege</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#75715e">-- Task3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#66d9ef">IntDistCalculable</span> a <span style="color:#66d9ef">where</span>
+</span></span><span style="display:flex;"><span>   integerDist <span style="color:#f92672">::</span> a <span style="color:#f92672">-&gt;</span> a <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">Integer</span>
+</span></span><span style="display:flex;"><span>   
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">instance</span> <span style="color:#66d9ef">IntDistCalculable</span> <span style="color:#66d9ef">Bool</span> <span style="color:#66d9ef">where</span>
+</span></span><span style="display:flex;"><span>   integerDist a b
+</span></span><span style="display:flex;"><span>       <span style="color:#f92672">|</span> a <span style="color:#f92672">==</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#f92672">|</span> a <span style="color:#f92672">/=</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">instance</span> <span style="color:#66d9ef">IntDistCalculable</span> <span style="color:#66d9ef">Integer</span> <span style="color:#66d9ef">where</span>
+</span></span><span style="display:flex;"><span>   integerDist a b
+</span></span><span style="display:flex;"><span>       <span style="color:#f92672">|</span> a <span style="color:#f92672">&gt;=</span> b <span style="color:#f92672">=</span> a <span style="color:#f92672">-</span> b
+</span></span><span style="display:flex;"><span>       <span style="color:#f92672">|</span> a <span style="color:#f92672">&lt;</span> b <span style="color:#f92672">=</span> b <span style="color:#f92672">-</span> a
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">instance</span> <span style="color:#66d9ef">IntDistCalculable</span> <span style="color:#66d9ef">Double</span> <span style="color:#66d9ef">where</span>
+</span></span><span style="display:flex;"><span>   integerDist a b
+</span></span><span style="display:flex;"><span>       <span style="color:#f92672">|</span> a <span style="color:#f92672">&gt;=</span> b <span style="color:#f92672">=</span> round ( a <span style="color:#f92672">-</span> b )
+</span></span><span style="display:flex;"><span>       <span style="color:#f92672">|</span> a <span style="color:#f92672">&lt;</span> b <span style="color:#f92672">=</span> round ( b <span style="color:#f92672">-</span> a )    
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">instance</span> <span style="color:#66d9ef">IntDistCalculable</span> (<span style="color:#66d9ef">Maybe</span> <span style="color:#66d9ef">Bool</span>) <span style="color:#66d9ef">where</span>
+</span></span><span style="display:flex;"><span>   integerDist <span style="color:#66d9ef">Nothing</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>   integerDist a <span style="color:#66d9ef">Nothing</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> 
+</span></span><span style="display:flex;"><span>   integerDist a b    
+</span></span><span style="display:flex;"><span>       <span style="color:#f92672">|</span> a <span style="color:#f92672">==</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#f92672">|</span> a <span style="color:#f92672">/=</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>    
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">instance</span> <span style="color:#66d9ef">IntDistCalculable</span> (<span style="color:#66d9ef">Maybe</span> <span style="color:#66d9ef">Integer</span>) <span style="color:#66d9ef">where</span>
+</span></span><span style="display:flex;"><span>   integerDist <span style="color:#66d9ef">Nothing</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>   integerDist a <span style="color:#66d9ef">Nothing</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>  
+</span></span><span style="display:flex;"><span>   integerDist a b 
+</span></span><span style="display:flex;"><span>       <span style="color:#f92672">|</span> a <span style="color:#f92672">&gt;=</span> b <span style="color:#f92672">=</span> fromJust a <span style="color:#f92672">-</span> fromJust b 
+</span></span><span style="display:flex;"><span>       <span style="color:#f92672">|</span> a <span style="color:#f92672">&lt;</span> b <span style="color:#f92672">=</span> fromJust b <span style="color:#f92672">-</span> fromJust a   
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">instance</span> <span style="color:#66d9ef">IntDistCalculable</span> (<span style="color:#66d9ef">Maybe</span> <span style="color:#66d9ef">Double</span>) <span style="color:#66d9ef">where</span>
+</span></span><span style="display:flex;"><span>   integerDist <span style="color:#66d9ef">Nothing</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>   integerDist a <span style="color:#66d9ef">Nothing</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>  
+</span></span><span style="display:flex;"><span>   integerDist a b 
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">|</span> a <span style="color:#f92672">&gt;=</span> b <span style="color:#f92672">=</span> round ( fromJust a <span style="color:#f92672">-</span> fromJust b )
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">|</span> a <span style="color:#f92672">&lt;</span> b <span style="color:#f92672">=</span> round ( fromJust b <span style="color:#f92672">-</span> fromJust a )  
+</span></span></code></pre></div><h2 id="summary-of-cource">SUMMARY OF COURCE</h2>
+    <a href="/"> >> Home</a>
+  </main>
+</div>
+    <footer>
+      
+<script>
+(function() {
+  function center_el(tagName) {
+    var tags = document.getElementsByTagName(tagName), i, tag;
+    for (i = 0; i < tags.length; i++) {
+      tag = tags[i];
+      var parent = tag.parentElement;
+      
+      if (parent.childNodes.length === 1) {
+        
+        if (parent.nodeName === 'A') {
+          parent = parent.parentElement;
+          if (parent.childNodes.length != 1) continue;
+        }
+        if (parent.nodeName === 'P') parent.style.textAlign = 'center';
+      }
+    }
+  }
+  var tagNames = ['img', 'embed', 'object'];
+  for (var i = 0; i < tagNames.length; i++) {
+    center_el(tagNames[i]);
+  }
+})();
+</script>
+
+      
+      <hr/>
+      Powered by <a href="https://gohugo.io/">Hugo</a> | Theme <a href="https://github.com/goodroot/hugo-classic">hugo-classic</a>
+      
+    </footer>
+  </body>
+</html>
+

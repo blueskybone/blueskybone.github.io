@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A simple, minimal blog for those who love text.">
+    <title>hugo 文本测试 | Blog</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="https://blueskybone.github.io/css/theme-override.css"><link rel="stylesheet" href="https://blueskybone.github.io/css/atom-one-light.min.css">
+    <script src="https://blueskybone.github.io/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+   
+    <header>
+
+  <nav>
+    <ul>
+      
+      
+      <li class="pull-left ">
+        <a href="https://blueskybone.github.io/">~/blog</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/categories/">~/categories</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/tags/">~/tags</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/links/">~/links</a>
+      </li>
+      
+
+      
+      
+      <li class="pull-right">
+        <a href="/about/">~/about</a>
+      </li>
+      
+      
+      <li class="pull-right">
+        <a href="https://github.com/blueskybone">~/github</a>
+      </li>
+      
+
+    </ul>
+  </nav>
+</header>
+
+  </head>
+  <body>
+    <br/>
+
+<div class="article-meta">
+<h1><span class="title">hugo 文本测试</span></h1>
+
+<h3 class="date">2023/10/19</h3>
+<p class="terms">
+  
+  
+  Categories: <a href="/categories/others">others</a> 
+  
+  
+  
+  
+</p>
+</div>
+
+
+<div class="content-wrapper">
+  <main>
+    <h2 id="二级标题">二级标题</h2>
+<h3 id="三级标题">三级标题</h3>
+<h4 id="四级标题">四级标题</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">fun1</span>(){
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;hugo classic&#34;</span><span style="color:#f92672">&lt;&lt;</span>std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> a{<span style="color:#ae81ff">0</span>};
+</span></span><span style="display:flex;"><span>    fun1();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><img src="/images/kronk.png" alt="kronk"></p>
+<p><strong>bold 加粗</strong></p>
+<p><del>delete 删除</del></p>
+<p><a href="www.baidu.com">link</a></p>
+<blockquote>
+<p>TODO：</p>
+<p>更换中英文字体。更换代码配色方案。调整英文文字间距。</p>
+<p>添加按钮切换黑暗模式。</p>
+<p>添加侧边栏大纲。</p>
+</blockquote>
+
+    <a href="/"> >> Home</a>
+  </main>
+</div>
+    <footer>
+      
+<script>
+(function() {
+  function center_el(tagName) {
+    var tags = document.getElementsByTagName(tagName), i, tag;
+    for (i = 0; i < tags.length; i++) {
+      tag = tags[i];
+      var parent = tag.parentElement;
+      
+      if (parent.childNodes.length === 1) {
+        
+        if (parent.nodeName === 'A') {
+          parent = parent.parentElement;
+          if (parent.childNodes.length != 1) continue;
+        }
+        if (parent.nodeName === 'P') parent.style.textAlign = 'center';
+      }
+    }
+  }
+  var tagNames = ['img', 'embed', 'object'];
+  for (var i = 0; i < tagNames.length; i++) {
+    center_el(tagNames[i]);
+  }
+})();
+</script>
+
+      
+      <hr/>
+      Powered by <a href="https://gohugo.io/">Hugo</a> | Theme <a href="https://github.com/goodroot/hugo-classic">hugo-classic</a>
+      
+    </footer>
+  </body>
+</html>
+

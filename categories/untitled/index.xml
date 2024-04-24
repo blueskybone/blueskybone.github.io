@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Untitled on Blog</title>
+    <link>https://blueskybone.github.io/categories/untitled/</link>
+    <description>Recent content in Untitled on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 06 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blueskybone.github.io/categories/untitled/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Untitled-00</title>
+      <link>https://blueskybone.github.io/post/untitled-00/</link>
+      <pubDate>Wed, 06 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blueskybone.github.io/post/untitled-00/</guid>
+      <description>自地平线升起的铸物。
+与深渊相窥探的眼睛。
+见证长久命运的遗迹。
+人类前往未来的门扉。</description>
+    </item>
+    
+  </channel>
+</rss>

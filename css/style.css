@@ -1,0 +1,227 @@
+/*simple style from https://cs.nju.edu.cn/wujx/HowToRequestCode.html*/
+/*darkmode*/
+/*
+background: #ffffff;
+ color: #0000EE;
+*/
+
+@media (prefers-color-scheme: dark) {
+
+  body {
+    color: #000;
+}
+
+  blockquote {
+    background: #ffffff;
+    color: #8b949e
+  }
+
+  a {
+    color: #0000EE;
+  }
+
+  header {
+    font-family: lucida console, liberation mono;
+  }
+
+  .article-meta,
+  .menu a {
+    background: #ffffff;
+    color: #000;
+  }
+
+  table {
+    margin: auto;
+    border-top: 1px solid #666;
+    border-bottom: 1px solid #666;
+  }
+
+  table thead th {
+    border-bottom: 1px solid #ddd;
+  }
+
+  th,
+  td {
+    padding: 5px;
+  }
+
+  tr:nth-child(even) {
+    background: #eee
+  }
+
+
+  body {
+    max-width: 800px;
+    margin: auto;
+    padding: .2em;
+    line-height: 1.5em;
+  }
+
+  h1 {
+    line-height: 1.5em;
+  }
+
+  /* Table of Contents, if wanted
+
+Add to yaml:
+
+output:
+  blogdown::html_page:
+    toc: true
+
+    */
+
+  #TableOfContents,
+  #TOC {
+    border: 1px solid #eee;
+    border-radius: 5px;
+  }
+
+  /* Header and Footer */
+  .menu li {
+    display: inline-block;
+  }
+
+  .article-meta,
+  .menu a {
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 5px;
+    border-width: 1px;
+    margin-bottom: 20px;
+  }
+
+  .terms {
+    font-size: .9em;
+  }
+
+  .menu,
+  .article-meta,
+  footer {
+    text-align: center;
+  }
+
+  .title {
+    font-size: 1.1em;
+  }
+
+  footer a {
+    text-decoration: none;
+  }
+
+  .pull-left {
+    float: left
+  }
+
+  .pull-right {
+    float: right
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Adjust background at your leisure! */
+  header {
+    position: relative;
+    width: 100%;
+    height: 1.75rem;
+    font-size: 1rem;
+    border-bottom: 1px solid #000;
+  }
+
+  header ul,
+  header ol {
+    margin: 0;
+    padding: 0;
+    list-style: none
+  }
+
+  header nav {
+    padding: 0 .5rem
+  }
+
+  header a {
+    color: #0000EE;
+    line-height: 1.75rem;
+    padding: 0 0.5rem;
+    font-weight: bold;
+  }
+
+  header a:hover,
+  header .current a {
+    color: #0000EE;
+    font-weight: bold;
+  }
+
+  /* Code Boxes */
+  pre {
+    border: 1px solid #ffffff;
+    background: #f8f8f8;
+    overflow-x: auto;
+  }
+
+  pre code {
+    background: none;
+  }
+
+  code {
+    background-color: #f3f4f4;
+  }
+
+
+  /* Images, tables, misc. */
+  img,
+  iframe,
+  video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  main {
+    hyphens: auto;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7em;
+    hyphens: auto;
+    display: block;
+    font-size: 1em;
+  }
+
+  main a {
+    font-weight: bold;
+  }
+
+  blockquote {
+    border-left: 5px solid #ccc;
+    padding: 3px 1em 3px;
+  }
+
+  .content-wrapper {
+    padding: 0px 12px 0px 12px;
+  }
+
+  #foxy {
+    min-width: 40px;
+    float: right;
+    padding: 10px;
+    display: block;
+  }
+
+  /* Small devices, phones */
+  @media only screen and (min-width : 480px) {
+    #foxy {
+      min-width: 40px;
+      float: center;
+      padding: 10px 10px 10px 20px;
+      display: block;
+    }
+  }
+}

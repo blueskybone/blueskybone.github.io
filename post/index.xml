@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Blog</title>
+    <link>https://blueskybone.github.io/post/</link>
+    <description>Recent content in Posts on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 16 Apr 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blueskybone.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>manual</title>
+      <link>https://blueskybone.github.io/post/manual/</link>
+      <pubDate>Tue, 16 Apr 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://blueskybone.github.io/post/manual/</guid>
+      <description>减少时间成本
+FreeSurfer安装在linux，以Ubuntu为例 使用freesurfer工具需要一个license文件，在官网注册获取。
+根据自己的系统版本下载FreeSurfer安装包，下载地址 deb文件是安装程序，或者tar.gz解压到目标文件夹。
+将license.txt文件放入freesurfer的安装路径。
+下载tcsh: sudo apt install tcsh
+配置环境：打开~/.bashrc文件，在文件末尾追加如下内容，保存退出
+export FREESURFER_HOME=/usr/local/freesurfer/7.4.1/	#更换成你的FreeSurfer安装路径 source $FREESURFER_HOME/SetUpFreeSurfer.sh 关闭终端，重新打开应显示如下内容。或使用sudo -i切换到root模式后也应显示如下内容。
+-------- freesurfer-linux-ubuntu22_x86_64-7.4.0-20230510-e558e6e --------Setting up environment for FreeSurfer/FS-FAST (and FSL)FREESURFER_HOME /usr/local/freesurfer/7.4.0FSFAST_HOME /usr/local/freesurfer/7.4.0/fsfastFSF_OUTPUT_FORMAT nii.gzSUBJECTS_DIR /usr/local/freesurfer/7.4.0/subjectsMNI_DIR /usr/local/freesurfer/7.4.0/mniFSL_DIR /usr/local/fsl 如何最大程度并行recon-all，并检查recon-all结果 以Ubuntu为例，安装parallel： sudo apt install parallel
+确保已安装freesurfer并可以正常调用相关工具：recon-all --help
+在你要处理的subjects文件夹下（sub-01,sub-02...）打开终端，执行指令
+ls *.nii | parallel -j 5 &amp;#39;recon-all -s {} -f {} -all -qcache&amp;#39; 指令解释如下，根据需要修改：
+ls *.nii 列出当前文件夹下以nii结尾的文件名称
+| 管道，将前一个部分的结果作为后一部分的输入</description>
+    </item>
+    
+    <item>
+      <title>Epigram-00</title>
+      <link>https://blueskybone.github.io/post/epigram-00/</link>
+      <pubDate>Thu, 01 Feb 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://blueskybone.github.io/post/epigram-00/</guid>
+      <description>聞いたところによれば「大暮はもう歳だしこれで引退して余生を過ごすらしいぜ、なんて囁かれている」らしい、です。そうなれればいいな、なんて思いつつ、現実はそんな甘くはないし僕自身やりたいことは山積みで。化の連載が終わった後も、5年前からの仕事を仕上げてる途中で、結局全然休めていませんし。これが終わったら、少し体と心をクリアにして、今年の終わり頃には連載をどこかで始めるつもりです。でも、今はまだ完全なニュートラルで、具体的には何ひとつ決まってません。ちなみに僕のスパンで考えると、今年終わり頃に連載というのはもう結構ギリで、夏には作業始めないと間に合わないんですよね。本音を言えば1年ぐらい休みたいところですが、それやるともう次の漫画を描ける気がしない。僕はきっとサメとかマグロと同じで、泳ぎ続けないと漫画家として死んでしまう生き物なので。ぼちぼちと構想練りながら相変わらず漫画のことばっかり考えています。それもまた幸せですし、恵まれているんだと思います。(グレ吉)
+听说有人觉得我年龄已经大了，会就此引退度过余生。我觉得这样确实挺不错的，但现实没那么轻松，而且我自己也还有好多事想做。哪怕是化物语连载结束后，我也一直在给这份五年前开始的工作收尾，完全没得休息。我想在今年年底的时候找个地方开始连载，但现在还完全没有开动，具体细节一个都没有确定。考虑到我的时间安排，今年年底开始连载太紧了，夏天我就得开始工作。说实话，我也想休息个一年，但如果休息了，我怕我就画不了下一部漫画了。我一定就像鲨鱼或者金枪鱼那样，如果停止游动，身为漫画家的自己就会死亡。如今我仍然在一点点构思，脑子里想的全是漫画。这也是一种幸福，我认为自己是受到眷顾的。</description>
+    </item>
+    
+    <item>
+      <title>learnyouahaskell</title>
+      <link>https://blueskybone.github.io/post/learnhaskell/</link>
+      <pubDate>Thu, 23 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blueskybone.github.io/post/learnhaskell/</guid>
+      <description>&lt;p&gt;教材：&lt;a href=&#34;http://learnyouahaskell.com/&#34;&gt;learnyouahaskell&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;环境：&lt;a href=&#34;https://www.haskell.org/ghc/download_ghc_9_2_3.html#windows64&#34;&gt;Windows-GHC-9.23-Download&lt;/a&gt;  only need download GHC for windows cmd.&lt;/p&gt;
+&lt;p&gt;International week course&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

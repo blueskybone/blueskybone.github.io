@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Others on Blog</title>
+    <link>https://blueskybone.github.io/categories/others/</link>
+    <description>Recent content in Others on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 16 Apr 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blueskybone.github.io/categories/others/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>manual</title>
+      <link>https://blueskybone.github.io/post/manual/</link>
+      <pubDate>Tue, 16 Apr 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://blueskybone.github.io/post/manual/</guid>
+      <description>减少时间成本
+FreeSurfer安装在linux，以Ubuntu为例 使用freesurfer工具需要一个license文件，在官网注册获取。
+根据自己的系统版本下载FreeSurfer安装包，下载地址 deb文件是安装程序，或者tar.gz解压到目标文件夹。
+将license.txt文件放入freesurfer的安装路径。
+下载tcsh: sudo apt install tcsh
+配置环境：打开~/.bashrc文件，在文件末尾追加如下内容，保存退出
+export FREESURFER_HOME=/usr/local/freesurfer/7.4.1/	#更换成你的FreeSurfer安装路径 source $FREESURFER_HOME/SetUpFreeSurfer.sh 关闭终端，重新打开应显示如下内容。或使用sudo -i切换到root模式后也应显示如下内容。
+-------- freesurfer-linux-ubuntu22_x86_64-7.4.0-20230510-e558e6e --------Setting up environment for FreeSurfer/FS-FAST (and FSL)FREESURFER_HOME /usr/local/freesurfer/7.4.0FSFAST_HOME /usr/local/freesurfer/7.4.0/fsfastFSF_OUTPUT_FORMAT nii.gzSUBJECTS_DIR /usr/local/freesurfer/7.4.0/subjectsMNI_DIR /usr/local/freesurfer/7.4.0/mniFSL_DIR /usr/local/fsl 如何最大程度并行recon-all，并检查recon-all结果 以Ubuntu为例，安装parallel： sudo apt install parallel
+确保已安装freesurfer并可以正常调用相关工具：recon-all --help
+在你要处理的subjects文件夹下（sub-01,sub-02...）打开终端，执行指令
+ls *.nii | parallel -j 5 &amp;#39;recon-all -s {} -f {} -all -qcache&amp;#39; 指令解释如下，根据需要修改：
+ls *.nii 列出当前文件夹下以nii结尾的文件名称
+| 管道，将前一个部分的结果作为后一部分的输入</description>
+    </item>
+    
+  </channel>
+</rss>
