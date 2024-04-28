@@ -110,16 +110,110 @@ FSL_DIR           /usr/local/fsl
 <pre tabindex="0"><code>#!/bin/bash
 TODO:
 </code></pre><p>note：不建议使用for循环，一是CPU资源利用不容易控制，二是可能造成文件冲突等问题。parallel的问题是无法一边输出一边运行，只会在指令执行完毕后一次性输出中间过程。</p>
-<h3 id="freesurfer下常用子工具及参数解释">FreeSurfer下常用子工具及参数解释</h3>
-<ol>
-<li>
-<p>降采样到fsaverage6空间：</p>
-<p>复制freesurfer/subject/fsaverage6文件夹，到目标文件夹(fsaverage6, sub-01,sub02...)</p>
-<p>执行</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mri_surf2surf TODO
-</span></span></code></pre></div></li>
-</ol>
-
+<hr>
+<p>示例代码：</p>
+<p>提值</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>export SUBJECTS_DIR<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>pwd<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> subj in <span style="color:#66d9ef">$(</span>ls -d */<span style="color:#66d9ef">)</span>; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>	mri_surf2surf --srcsubject fsaverage --trgsubject $subj --hemi lh --sval-annot lh.DK1533.aparc.annot --tval lh.DK1533.aparc.annot
+</span></span><span style="display:flex;"><span>	mri_surf2surf --srcsubject fsaverage --trgsubject $subj --hemi rh --sval-annot rh.DK1533.aparc.annot --tval rh.DK1533.aparc.annot
+</span></span><span style="display:flex;"><span>	mris_anatomical_stats -a <span style="color:#e6db74">${</span>SUBJECTS_DIR<span style="color:#e6db74">}</span>/<span style="color:#e6db74">${</span>subj<span style="color:#e6db74">}</span>label/lh.DK1533.aparc.annot -f <span style="color:#e6db74">${</span>SUBJECTS_DIR<span style="color:#e6db74">}</span>/<span style="color:#e6db74">${</span>subj<span style="color:#e6db74">}</span>stats/lh.DK1533.aparc.stats $subj lh
+</span></span><span style="display:flex;"><span>	mris_anatomical_stats -a <span style="color:#e6db74">${</span>SUBJECTS_DIR<span style="color:#e6db74">}</span>/<span style="color:#e6db74">${</span>subj<span style="color:#e6db74">}</span>label/rh.DK1533.aparc.annot -f <span style="color:#e6db74">${</span>SUBJECTS_DIR<span style="color:#e6db74">}</span>/<span style="color:#e6db74">${</span>subj<span style="color:#e6db74">}</span>stats/rh.DK1533.aparc.stats $subj rh
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>	aparcstats2table --subjects $subj --hemi lh --meas thickness --parc DK1533.aparc --tablefile <span style="color:#e6db74">${</span>subj<span style="color:#e6db74">}</span>500.aparc_lh.txt
+</span></span><span style="display:flex;"><span>	aparcstats2table --subjects $subj --hemi rh --meas thickness --parc DK1533.aparc --tablefile <span style="color:#e6db74">${</span>subj<span style="color:#e6db74">}</span>500.aparc_rh.txt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	aparcstats2table --subjects $subj --hemi lh --meas meancurv --parc DK1533.aparc --tablefile <span style="color:#e6db74">${</span>subj<span style="color:#e6db74">}</span>500.aparc_lh_meancur.txt
+</span></span><span style="display:flex;"><span>	aparcstats2table --subjects $subj --hemi rh --meas meancurv --parc DK1533.aparc --tablefile <span style="color:#e6db74">${</span>subj<span style="color:#e6db74">}</span>500.aparc_rh_meancur.txt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	aparcstats2table --subjects $subj --hemi lh --meas gauscurv --parc DK1533.aparc --tablefile <span style="color:#e6db74">${</span>subj<span style="color:#e6db74">}</span>500.aparc_lh_gauscurv .txt
+</span></span><span style="display:flex;"><span>	aparcstats2table --subjects $subj --hemi rh --meas  gauscurv  --parc DK1533.aparc --tablefile <span style="color:#e6db74">${</span>subj<span style="color:#e6db74">}</span>500.aparc_rh_gauscurv .txt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	aparcstats2table --subjects $subj --hemi lh --meas area --parc DK1533.aparc --tablefile <span style="color:#e6db74">${</span>subj<span style="color:#e6db74">}</span>500.aparc_lh_area.txt
+</span></span><span style="display:flex;"><span>	aparcstats2table --subjects $subj --hemi rh --meas area --parc DK1533.aparc --tablefile <span style="color:#e6db74">${</span>subj<span style="color:#e6db74">}</span>500.aparc_rh_area.txt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	aparcstats2table --subjects $subj --hemi lh --meas volume --parc DK1533.aparc --tablefile <span style="color:#e6db74">${</span>subj<span style="color:#e6db74">}</span>500.aparc_lh_area_volume.txt
+</span></span><span style="display:flex;"><span>	aparcstats2table --subjects $subj --hemi rh --meas volume --parc DK1533.aparc --tablefile <span style="color:#e6db74">${</span>subj<span style="color:#e6db74">}</span>500.aparc_rh_area_volume.txt
+</span></span></code></pre></div><p>下采样_surf</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>subjectname<span style="color:#f92672">=</span>$1
+</span></span><span style="display:flex;"><span>mkdir <span style="color:#e6db74">${</span>subjectname<span style="color:#e6db74">}</span>_fsaverage6
+</span></span><span style="display:flex;"><span>mkdir <span style="color:#e6db74">${</span>subjectname<span style="color:#e6db74">}</span>_fsaverage6/surf
+</span></span><span style="display:flex;"><span>mri_surf2surf --hemi rh --srcsubject <span style="color:#e6db74">${</span>subjectname<span style="color:#e6db74">}</span> --sval-xyz pial --trgsubject fsaverage6 --trgicoorder <span style="color:#ae81ff">6</span> --tval-xyz <span style="color:#e6db74">${</span>subjectname<span style="color:#e6db74">}</span>/mri/brain.mgz --tval <span style="color:#e6db74">${</span>subjectname<span style="color:#e6db74">}</span>_fsaverage6/surf/rh.pial --fwhm <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>mri_surf2surf --hemi lh --srcsubject <span style="color:#e6db74">${</span>subjectname<span style="color:#e6db74">}</span> --sval-xyz pial --trgsubject fsaverage6 --trgicoorder <span style="color:#ae81ff">6</span> --tval-xyz <span style="color:#e6db74">${</span>subjectname<span style="color:#e6db74">}</span>/mri/brain.mgz --tval <span style="color:#e6db74">${</span>subjectname<span style="color:#e6db74">}</span>_fsaverage6/surf/lh.pial --fwhm <span style="color:#ae81ff">2</span>
+</span></span></code></pre></div><p>下采样_label</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>subjectname<span style="color:#f92672">=</span>$1 
+</span></span><span style="display:flex;"><span>mkdir <span style="color:#e6db74">${</span>subjectname<span style="color:#e6db74">}</span>_fsaverage6
+</span></span><span style="display:flex;"><span>mkdir <span style="color:#e6db74">${</span>subjectname<span style="color:#e6db74">}</span>_fsaverage6/label
+</span></span><span style="display:flex;"><span>raw_label_folder<span style="color:#f92672">=</span>$SUBJECTS_DIR/<span style="color:#e6db74">${</span>subjectname<span style="color:#e6db74">}</span>/label
+</span></span><span style="display:flex;"><span>tar_label_folder<span style="color:#f92672">=</span>$SUBJECTS_DIR/<span style="color:#e6db74">${</span>subjectname<span style="color:#e6db74">}</span>_fsaverage6/label
+</span></span><span style="display:flex;"><span>cd $raw_label_folder
+</span></span><span style="display:flex;"><span>ls lh.*.label | parallel -j <span style="color:#ae81ff">20</span> mri_label2label --srclabel <span style="color:#f92672">{}</span> --srcsubject <span style="color:#e6db74">${</span>subjectname<span style="color:#e6db74">}</span> --trglabel <span style="color:#e6db74">${</span>tar_label_folder<span style="color:#e6db74">}</span>/<span style="color:#f92672">{}</span> --trgsubject fsaverage6 --regmethod surface --hemi lh --trgicoorder <span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span>ls rh.*.label | parallel -j <span style="color:#ae81ff">20</span> mri_label2label --srclabel <span style="color:#f92672">{}</span> --srcsubject <span style="color:#e6db74">${</span>subjectname<span style="color:#e6db74">}</span> --trglabel <span style="color:#e6db74">${</span>tar_label_folder<span style="color:#e6db74">}</span>/<span style="color:#f92672">{}</span> --trgsubject fsaverage6 --regmethod surface --hemi rh --trgicoorder <span style="color:#ae81ff">6</span>
+</span></span></code></pre></div><p>from recon-all to downsample to compute geodistant pipeple sample code</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>export SUBJECTS_DIR<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>pwd<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>rm -rf *_fsaverage6
+</span></span><span style="display:flex;"><span>rm -rf /home/name/cpp_geodesics_main/subjects_no_smooth
+</span></span><span style="display:flex;"><span>rm -rf /home/name/cpp_geodesics_main/subjects_2mm
+</span></span><span style="display:flex;"><span>rm -rf /home/name/cpp_geodesics_main/subjects_5mm
+</span></span><span style="display:flex;"><span>rm -rf /home/name/cpp_geodesics_main/subjects_10mm
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># step 1: do recon-all for all subjects</span>
+</span></span><span style="display:flex;"><span>ls *.nii.gz | parallel -j <span style="color:#ae81ff">20</span> <span style="color:#e6db74">&#39;recon-all -s {.} -i {} -all -qcache&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># step 2: downsample with different fwhm</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># no_smooth</span>
+</span></span><span style="display:flex;"><span>cd /home/name/test_script/fliped_nii
+</span></span><span style="display:flex;"><span>ls -d * | grep nii | parallel -j <span style="color:#ae81ff">5</span> <span style="color:#e6db74">&#39;bash downsample_no_smooth.sh&#39;</span>
+</span></span><span style="display:flex;"><span>mkdir /home/name/cpp_geodesics_main/subjects_no_smooth
+</span></span><span style="display:flex;"><span>mv *_fsaverage6 /home/name/cpp_geodesics_main/subjects_no_smooth
+</span></span><span style="display:flex;"><span>cd /home/name/cpp_geodesics_main/subjects_no_smooth
+</span></span><span style="display:flex;"><span>ls -d *_fsaverage6 | sed <span style="color:#e6db74">&#39;s/^/subjects_no_smooth\//&#39;</span> &gt; subject_no_smooth.txt
+</span></span><span style="display:flex;"><span>mv subject_no_smooth.txt ..
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 2mm: subject_2mm</span>
+</span></span><span style="display:flex;"><span>cd /home/name/test_script/fliped_nii
+</span></span><span style="display:flex;"><span>ls -d * | grep nii | parallel -j <span style="color:#ae81ff">5</span> <span style="color:#e6db74">&#39;bash downsample_2mm.sh&#39;</span>
+</span></span><span style="display:flex;"><span>mkdir /home/name/cpp_geodesics_main/subjects_2mm
+</span></span><span style="display:flex;"><span>mv *_fsaverage6 /home/name/cpp_geodesics_main/subjects_2mm
+</span></span><span style="display:flex;"><span>cd /home/name/cpp_geodesics_main/subjects_2mm
+</span></span><span style="display:flex;"><span>ls -d *_fsaverage6 | sed <span style="color:#e6db74">&#39;s/^/subjects_2mm\//&#39;</span> &gt; subject_2mm.txt
+</span></span><span style="display:flex;"><span>mv subject_2mm.txt ..
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 5mm: subject_5mm</span>
+</span></span><span style="display:flex;"><span>cd /home/name/test_script/fliped_nii
+</span></span><span style="display:flex;"><span>ls -d * | grep nii | parallel -j <span style="color:#ae81ff">5</span> <span style="color:#e6db74">&#39;bash downsample_5mm.sh&#39;</span>
+</span></span><span style="display:flex;"><span>mkdir /home/name/cpp_geodesics_main/subjects_5mm
+</span></span><span style="display:flex;"><span>mv *_fsaverage6 /home/name/cpp_geodesics_main/subjects_5mm
+</span></span><span style="display:flex;"><span>cd /home/name/cpp_geodesics_main/subjects_5mm
+</span></span><span style="display:flex;"><span>ls -d *_fsaverage6 | sed <span style="color:#e6db74">&#39;s/^/subjects_5mm\//&#39;</span> &gt; subject_5mm.txt
+</span></span><span style="display:flex;"><span>mv subject_5mm.txt ..
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 10mm: subject_10mm</span>
+</span></span><span style="display:flex;"><span>cd /home/name/test_script/fliped_nii
+</span></span><span style="display:flex;"><span>ls -d * | grep nii | parallel -j <span style="color:#ae81ff">5</span> <span style="color:#e6db74">&#39;bash downsample_10mm.sh&#39;</span>
+</span></span><span style="display:flex;"><span>mkdir /home/name/cpp_geodesics_main/subjects_10mm
+</span></span><span style="display:flex;"><span>mv *_fsaverage6 /home/name/cpp_geodesics_main/subjects_10mm
+</span></span><span style="display:flex;"><span>cd /home/name/cpp_geodesics_main/subjects_10mm
+</span></span><span style="display:flex;"><span>ls -d *_fsaverage6 | sed <span style="color:#e6db74">&#39;s/^/subjects_10mm\//&#39;</span> &gt; subject_10mm.txt
+</span></span><span style="display:flex;"><span>mv subject_10mm.txt ..
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># step 3: compute geodcircles</span>
+</span></span><span style="display:flex;"><span>cd /home/name/cpp_geodesics_main
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>./geodcircles subject_2mm.txt
+</span></span><span style="display:flex;"><span>./geodcircles subject_5mm.txt
+</span></span><span style="display:flex;"><span>./geodcircles subject_10mm.txt
+</span></span><span style="display:flex;"><span>./geodcircles subject_no_smooth.txt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># step 4: downsample_label (move or not)</span>
+</span></span><span style="display:flex;"><span>cd /home/name/test_script/fliped_nii
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> subj in <span style="color:#66d9ef">$(</span>ls -d | grep nii<span style="color:#66d9ef">)</span>; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>	bash downsample_label.sh $subj
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div>
     <a href="/"> >> Home</a>
   </main>
 </div>
