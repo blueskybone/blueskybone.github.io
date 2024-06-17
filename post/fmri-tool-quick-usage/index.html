@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A simple, minimal blog for those who love text.">
+    <title>fMRI tools quick usage | Blog</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="https://blueskybone.github.io/css/theme-override.css"><link rel="stylesheet" href="https://blueskybone.github.io/css/atom-one-light.min.css">
+    <script src="https://blueskybone.github.io/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+   
+    <header>
+
+  <nav>
+    <ul>
+      
+      
+      <li class="pull-left ">
+        <a href="https://blueskybone.github.io/">~/blog</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/categories/">~/categories</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/links/">~/links</a>
+      </li>
+      
+
+      
+      
+      <li class="pull-right">
+        <a href="/about/">~/about</a>
+      </li>
+      
+      
+      <li class="pull-right">
+        <a href="https://github.com/blueskybone">~/github</a>
+      </li>
+      
+
+    </ul>
+  </nav>
+</header>
+
+  </head>
+  <body>
+    <br/>
+
+<div class="article-meta">
+<h1><span class="title">fMRI tools quick usage</span></h1>
+
+<h3 class="date">2024/05/23</h3>
+<p class="terms">
+  
+  
+  Categories: <a href="/categories/fmri">fMRI</a> 
+  
+  
+  
+  
+</p>
+</div>
+
+
+<div class="content-wrapper">
+  <main>
+    <h3 id="dcm2niix">dcm2niix</h3>
+<p><code>dcm2niix -f {filename} {dirname}</code></p>
+<p><code>\MRIcroGL\Resources\dcm2niix.exe -f {output_name} -p y -z y {input_dir}</code></p>
+<p>官方的dcm2niix对某些dcm文件无法使用，用MRIcroGL路径下的dcm2niix。</p>
+<p>tips: dcm2niix不能使用多线程（显示进程状态D休眠，可能由于磁盘IO死锁引起，不确定，等待测试）</p>
+<hr>
+<p>python：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> os
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>output_path <span style="color:#f92672">=</span> <span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;E:\FunNii_SCZ&#39;</span>
+</span></span><span style="display:flex;"><span>os<span style="color:#f92672">.</span>system(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;mkdir -p </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">.</span>format(output_path))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>base_path <span style="color:#f92672">=</span> <span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;E:\FunRaw_SCZ&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> sub_name <span style="color:#f92672">in</span> os<span style="color:#f92672">.</span>listdir(base_path):
+</span></span><span style="display:flex;"><span>    subject <span style="color:#f92672">=</span> base_path <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">+</span> sub_name
+</span></span><span style="display:flex;"><span>    subject_out <span style="color:#f92672">=</span> output_path <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;sub_&#39;</span> <span style="color:#f92672">+</span> sub_name
+</span></span><span style="display:flex;"><span>    os<span style="color:#f92672">.</span>system(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;mkdir -p </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">.</span>format(subject_out))
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> seq <span style="color:#f92672">in</span> os<span style="color:#f92672">.</span>listdir(subject):
+</span></span><span style="display:flex;"><span>        input_dir <span style="color:#f92672">=</span> subject <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">+</span> seq
+</span></span><span style="display:flex;"><span>        os<span style="color:#f92672">.</span>system(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;D:\matlab_toolbox\MRIcroGL\Resources\dcm2niix.exe -f </span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> -p y -z y </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">.</span>format(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>sub_name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>, input_dir))
+</span></span><span style="display:flex;"><span>        os<span style="color:#f92672">.</span>system(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;move </span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">.</span>format(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>input_dir<span style="color:#e6db74">}</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">{</span>sub_name<span style="color:#e6db74">}</span><span style="color:#e6db74">.nii.gz&#34;</span>, <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>subject_out<span style="color:#e6db74">}</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">&#34;</span>))
+</span></span></code></pre></div><p>bat代码未测试：(generated by Chatgpt3.5 converted from Python code above.)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>@echo off
+</span></span><span style="display:flex;"><span>set output_path<span style="color:#f92672">=</span>E:<span style="color:#ae81ff">\F</span>unNii_SCZ
+</span></span><span style="display:flex;"><span>mkdir %output_path%
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>set base_path<span style="color:#f92672">=</span>E:<span style="color:#ae81ff">\F</span>unRaw_SCZ
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> /D %%G in <span style="color:#f92672">(</span>%base_path%<span style="color:#ae81ff">\*</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">do</span> <span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>    set subject<span style="color:#f92672">=</span>%%G
+</span></span><span style="display:flex;"><span>    set <span style="color:#e6db74">&#34;sub_name=%%~nxG&#34;</span>
+</span></span><span style="display:flex;"><span>    set <span style="color:#e6db74">&#34;subject_out=%output_path%\sub_!sub_name!&#34;</span>
+</span></span><span style="display:flex;"><span>    mkdir %subject_out%
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> /D %%S in <span style="color:#f92672">(</span>!subject!<span style="color:#ae81ff">\*</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">do</span> <span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>        set input_dir<span style="color:#f92672">=</span>%%S
+</span></span><span style="display:flex;"><span>        D:<span style="color:#ae81ff">\m</span>atlab_toolbox<span style="color:#ae81ff">\M</span>RIcroGL<span style="color:#ae81ff">\R</span>esources<span style="color:#ae81ff">\d</span>cm2niix.exe -f !sub_name! -p y -z y !input_dir!
+</span></span><span style="display:flex;"><span>        move <span style="color:#e6db74">&#34;!input_dir!\!sub_name!.nii.gz&#34;</span> <span style="color:#e6db74">&#34;%subject_out%\&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    )
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">)
+</span></span></span></code></pre></div><p>linux</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>base_path<span style="color:#f92672">=</span>/media/username/8T_Volume/SCZ/SCZ_treated/12M/REST/FunRaw
+</span></span><span style="display:flex;"><span>output_path<span style="color:#f92672">=</span>/media/username/8T_Volume/SCZ/SCZ_treated/12M/REST/FunNii
+</span></span><span style="display:flex;"><span>dcm2niix_path<span style="color:#f92672">=</span>/home/username/MRIcroGL/Resources/dcm2niix
+</span></span><span style="display:flex;"><span>prefix<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;sub_&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ls $base_path | parallel -j 1 bash run.sh ${base_path} ${output_path} {}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> sub_name in <span style="color:#66d9ef">$(</span>ls $base_path<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>	input_dir<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>base_path<span style="color:#e6db74">}</span>/<span style="color:#e6db74">${</span>sub_name<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>	output_dir<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>output_path<span style="color:#e6db74">}</span>/<span style="color:#e6db74">${</span>prefix<span style="color:#e6db74">}${</span>sub_name<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>	mkdir -p $output_dir
+</span></span><span style="display:flex;"><span>	dcm2niix_path -f <span style="color:#e6db74">${</span>sub_name<span style="color:#e6db74">}</span> -p y -z y <span style="color:#e6db74">${</span>input_dir<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>	mv <span style="color:#e6db74">${</span>input_dir<span style="color:#e6db74">}</span>/<span style="color:#e6db74">${</span>sub_name<span style="color:#e6db74">}</span>.nii.gz <span style="color:#e6db74">${</span>output_dir<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>	gzip -d <span style="color:#e6db74">${</span>output_dir<span style="color:#e6db74">}</span>/<span style="color:#e6db74">${</span>sub_name<span style="color:#e6db74">}</span>.nii.gz
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div>
+    <a href="/"> >> Home</a>
+  </main>
+</div>
+    <footer>
+      
+<script>
+(function() {
+  function center_el(tagName) {
+    var tags = document.getElementsByTagName(tagName), i, tag;
+    for (i = 0; i < tags.length; i++) {
+      tag = tags[i];
+      var parent = tag.parentElement;
+      
+      if (parent.childNodes.length === 1) {
+        
+        if (parent.nodeName === 'A') {
+          parent = parent.parentElement;
+          if (parent.childNodes.length != 1) continue;
+        }
+        if (parent.nodeName === 'P') parent.style.textAlign = 'center';
+      }
+    }
+  }
+  var tagNames = ['img', 'embed', 'object'];
+  for (var i = 0; i < tagNames.length; i++) {
+    center_el(tagNames[i]);
+  }
+})();
+</script>
+
+      
+      <hr/>
+      Powered by <a href="https://gohugo.io/">Hugo</a> | Theme <a href="https://github.com/goodroot/hugo-classic">hugo-classic</a>
+      
+    </footer>
+  </body>
+</html>
+

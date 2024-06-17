@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>fMRI on Blog</title>
+    <link>https://blueskybone.github.io/categories/fmri/</link>
+    <description>Recent content in fMRI on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 23 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blueskybone.github.io/categories/fmri/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>fMRI tools quick usage</title>
+      <link>https://blueskybone.github.io/post/fmri-tool-quick-usage/</link>
+      <pubDate>Thu, 23 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://blueskybone.github.io/post/fmri-tool-quick-usage/</guid>
+      <description>dcm2niix dcm2niix -f {filename} {dirname}
+\MRIcroGL\Resources\dcm2niix.exe -f {output_name} -p y -z y {input_dir}
+官方的dcm2niix对某些dcm文件无法使用，用MRIcroGL路径下的dcm2niix。
+tips: dcm2niix不能使用多线程（显示进程状态D休眠，可能由于磁盘IO死锁引起，不确定，等待测试）
+python：
+import os output_path = r&amp;#39;E:\FunNii_SCZ&amp;#39; os.system(r&amp;#39;mkdir -p {}&amp;#39;.format(output_path)) base_path = r&amp;#39;E:\FunRaw_SCZ&amp;#39; for sub_name in os.listdir(base_path): subject = base_path + &amp;#39;\\&amp;#39; + sub_name subject_out = output_path + &amp;#39;\\&amp;#39; + &amp;#39;sub_&amp;#39; + sub_name os.system(r&amp;#39;mkdir -p {}&amp;#39;.format(subject_out)) for seq in os.listdir(subject): input_dir = subject + &amp;#39;\\&amp;#39; + seq os.system(r&amp;#39;D:\matlab_toolbox\MRIcroGL\Resources\dcm2niix.exe -f {} -p y -z y {}&amp;#39;.format(f&amp;#34;{sub_name}&amp;#34;, input_dir)) os.</description>
+    </item>
+    
+  </channel>
+</rss>
