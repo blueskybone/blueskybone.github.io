@@ -19,19 +19,6 @@ filter logcat in Android Studio package:mine -tag=:gralloc4 </description>
     </item>
     
     <item>
-      <title>donate list</title>
-      <link>https://blueskybone.github.io/post/donate/</link>
-      <pubDate>Wed, 12 Jun 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://blueskybone.github.io/post/donate/</guid>
-      <description>感谢博士的支持。
-如果名单没有你的信息，请联系作者。
-QQ群：702133105
-b站：https://space.bilibili.com/13957147
-名字 时间 金额 备注 C.C 2024-8-13 100￥ 感谢支持 K.T 2024-8-13 100￥ 感谢支持 K.T 2024-8-13 100￥ 感谢支持 K.T 2024-8-13 100￥ 感谢支持 K.T 2024-8-13 100￥ 感谢支持 K.T 2024-8-13 100￥ 感谢支持 K.T 2024-8-13 100￥ 感谢支持 K.T 2024-8-13 100￥ 感谢支持 K.T 2024-8-13 100￥ 感谢支持 </description>
-    </item>
-    
-    <item>
       <title>fMRI tools quick usage</title>
       <link>https://blueskybone.github.io/post/fmri-tool-quick-usage/</link>
       <pubDate>Thu, 23 May 2024 00:00:00 +0000</pubDate>
