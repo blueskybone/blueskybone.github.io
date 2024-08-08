@@ -14,7 +14,8 @@
       
       <guid>https://blueskybone.github.io/post/android-post/</guid>
       <description>Solutions to some minor problems in Android development.
-collapse quicksetting panel instead of using StartActivityAndCollapse(), simply invoke a empty Dialog can touch the same effect.</description>
+collapse quicksetting panel instead of using StartActivityAndCollapse(), simply invoke a empty Dialog can touch the same effect.
+filter logcat in Android Studio package:mine -tag=:gralloc4 </description>
     </item>
     
   </channel>
