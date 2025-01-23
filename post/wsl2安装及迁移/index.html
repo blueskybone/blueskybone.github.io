@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A simple, minimal blog for those who love text.">
+    <title>WSL2安装及迁移 | Blog</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="http://localhost:1313/css/theme-override.css"><link rel="stylesheet" href="http://localhost:1313/css/atom-one-light.min.css">
+    <script src="http://localhost:1313/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+   
+    <header>
+
+  <nav>
+    <ul>
+      
+      
+      <li class="pull-left ">
+        <a href="http://localhost:1313/">~/blog</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/categories/">~/categories</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/links/">~/links</a>
+      </li>
+      
+
+      
+      
+      <li class="pull-right">
+        <a href="/about/">~/about</a>
+      </li>
+      
+      
+      <li class="pull-right">
+        <a href="https://github.com/blueskybone">~/github</a>
+      </li>
+      
+
+    </ul>
+  </nav>
+</header>
+
+  </head>
+  <body>
+    <br/>
+
+<div class="article-meta">
+<h1><span class="title">WSL2安装及迁移</span></h1>
+
+<h3 class="date">2025/01/23</h3>
+<p class="terms">
+  
+  
+  Categories: <a href="/categories/manual">Manual</a> 
+  
+  
+  
+  
+</p>
+</div>
+
+
+<div class="content-wrapper">
+  <main>
+    <p>自用。</p>
+<p>wsl2的官方一键式安装直接打两行命令从microsofy store下载安装就结束了，但通常我们连不上Microsoft Store。所以提供一个手动下载并安装的路径。</p>
+<p>另外安装WSL的虚拟硬盘默认是装到C盘，但C盘快爆了，还需要手动迁移到D盘。</p>
+<p>主要是今天终端开Ubuntu突然发现Hyper-v没了，然后一通操作数据全寄了。不过无所谓没啥重要的东西，重新装一遍。</p>
+<p><a href="https://www.cnblogs.com/woods1815/p/15645611.html">家庭版win10安装hyper-v</a></p>
+<h2 id="手动安装步骤">手动安装步骤</h2>
+<p><a href="https://learn.microsoft.com/zh-cn/windows/wsl/install-manual">微软官方教程</a> 安装WSL2的前置设置（开启功能，查看配置）到下载发行版之前的部分只需要看官方的教程。</p>
+<p>假设已经完成了前置设置。</p>
+<h3 id="1-下载发行版">1. 下载发行版</h3>
+<blockquote>
+<p>如果 Microsoft Store 应用不可用，可使用以下链接来下载并手动安装 Linux 发行版：</p>
+<ul>
+<li><a href="https://aka.ms/wslubuntu">Ubuntu</a></li>
+<li><a href="https://wslstorestorage.blob.core.windows.net/wslblob/Ubuntu2404-240425.AppxBundle">Ubuntu 24.04</a></li>
+<li><a href="https://aka.ms/wslubuntu2204">Ubuntu 22.04 LTS</a></li>
+<li><a href="https://aka.ms/wslubuntu2004">Ubuntu 20.04</a></li>
+</ul>
+</blockquote>
+<p>官方页面还有其他发行版。我使用Ubuntu 22.04的版本</p>
+<h3 id="2安装发行版">2.安装发行版</h3>
+<p>下载完成后的文件 <code>Ubuntu2204-221101.AppxBundle</code> ，后缀AppxBundle指定windows的应用安装程序打开文件，双击启动安装程序。安装完成后选择打开，或者手动打开Ubuntu.exe，路径在\AppData\Local\Microsoft\WindowsApps下。</p>
+<p>打开后输用户名密码，完成安装。</p>
+<p>此时 <code>wsl --list --verbose</code> 已经可以检测到注册的ubuntu系统。</p>
+<h2 id="迁移到d盘">迁移到D盘</h2>
+<p>随着系统的使用WSL的占用会变得越来越大，对空间比较紧张的机器来说C盘的空间是寸土寸金的，这里通过wsl的备份与迁移的功能把它的虚拟硬盘空间迁移到D盘。（虽然微软提供这个功能的本意可能就只是备份和还原，比如换机器啊，机器坏了的情况等等）</p>
+<h3 id="关闭虚拟机">关闭虚拟机</h3>
+<p><code> wsl --list --verbose</code> 查看虚拟机名称和状态，返回结果像 <code>Ubuntu    Running         2</code></p>
+<p><code>wsl --shutdown Ubuntu</code> 关闭虚拟机</p>
+<h3 id="迁移到d盘-1">迁移到D盘</h3>
+<p><code>wsl --export Ubuntu D:\Ubuntu_WSL\Ubuntu.tar</code> 确定在目标路径看到备份文件后，</p>
+<p><code>wsl --unregister Ubuntu</code> 注销并卸载WSL 发行版（操作不可逆，确保已有备份文件）</p>
+<p><code>wsl --import Ubuntu D:\Ubuntu_WSL D:\Ubuntu_WSL\Ubuntu.tar</code> 恢复到D盘，此时可以在目标目录下看到 <code>ext4.vhdx</code> 这是虚拟硬盘映像文件。迁移完成。</p>
+<h3 id="恢复默认用户">恢复默认用户</h3>
+<p>此时已经可以恢复启动wsl，但是配置文件丢失，用户名是默认的root，需要恢复成迁移前的用户</p>
+<p><code>Ubuntu config --default-user user</code></p>
+<p>另外假如恢复（import）的实例名称包含字符（比如Ubuntu-22.04），上面的命令需要删掉字符（Ubuntu2204）</p>
+<h2 id="安装-windows-终端可选">安装 Windows 终端（可选）</h2>
+<p><a href="https://learn.microsoft.com/zh-cn/windows/terminal/install">微软的教程</a></p>
+<p>然后在设置页里新建配置，命令行选择 <code>ubuntu2204.exe</code>（疑似如果在终端Powershell里完成上述安装操作会自动添加这个选项，就不用再手动配置了），或者 <code>C:\WINDOWS\system32\wsl.exe -d Ubuntu</code></p>
+
+    <a href="/"> >> Home</a>
+  </main>
+</div>
+    <footer>
+      
+<script>
+(function() {
+  function center_el(tagName) {
+    var tags = document.getElementsByTagName(tagName), i, tag;
+    for (i = 0; i < tags.length; i++) {
+      tag = tags[i];
+      var parent = tag.parentElement;
+      
+      if (parent.childNodes.length === 1) {
+        
+        if (parent.nodeName === 'A') {
+          parent = parent.parentElement;
+          if (parent.childNodes.length != 1) continue;
+        }
+        if (parent.nodeName === 'P') parent.style.textAlign = 'center';
+      }
+    }
+  }
+  var tagNames = ['img', 'embed', 'object'];
+  for (var i = 0; i < tagNames.length; i++) {
+    center_el(tagNames[i]);
+  }
+})();
+</script>
+
+      
+      <hr/>
+      Powered by <a href="https://gohugo.io/">Hugo</a> | Theme <a href="https://github.com/goodroot/hugo-classic">hugo-classic</a>
+      
+    </footer>
+  </body>
+</html>
+

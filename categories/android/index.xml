@@ -2,21 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Android on Blog</title>
-    <link>https://blueskybone.github.io/categories/android/</link>
+    <link>http://localhost:1313/categories/android/</link>
     <description>Recent content in Android on Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 12 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blueskybone.github.io/categories/android/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 12 Jun 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/android/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>android-post</title>
-      <link>https://blueskybone.github.io/post/android-post/</link>
+      <link>http://localhost:1313/post/android-post/</link>
       <pubDate>Wed, 12 Jun 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://blueskybone.github.io/post/android-post/</guid>
-      <description>Solutions to some minor problems in Android development.
-collapse quicksetting panel instead of using StartActivityAndCollapse(), simply invoke a empty Dialog can touch the same effect.
-filter logcat in Android Studio package:mine -tag=:gralloc4 </description>
+      <guid>http://localhost:1313/post/android-post/</guid>
+      <description>&lt;p&gt;Solutions to some minor problems in Android development.&lt;/p&gt;&#xA;&lt;h2 id=&#34;collapse-quicksetting-panel&#34;&gt;collapse quicksetting panel&lt;/h2&gt;&#xA;&lt;p&gt;instead of using StartActivityAndCollapse(), simply invoke a empty Dialog can touch the same effect.&lt;/p&gt;&#xA;&lt;h2 id=&#34;filter-logcat-in-android-studio&#34;&gt;filter logcat in Android Studio&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;package:mine -tag=:gralloc4&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
-    
   </channel>
 </rss>

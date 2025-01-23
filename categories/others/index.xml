@@ -2,19 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Others on Blog</title>
-    <link>https://blueskybone.github.io/categories/others/</link>
+    <link>http://localhost:1313/categories/others/</link>
     <description>Recent content in Others on Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 28 Apr 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blueskybone.github.io/categories/others/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/others/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>image-test</title>
-      <link>https://blueskybone.github.io/post/image-test/</link>
+      <link>http://localhost:1313/post/image-test/</link>
       <pubDate>Sun, 28 Apr 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://blueskybone.github.io/post/image-test/</guid>
-      <description>HOTLINE MIAMI : WRONG NUMBER </description>
+      <guid>http://localhost:1313/post/image-test/</guid>
+      <description>&lt;h1 id=&#34;hotline-miami--wrong-number&#34;&gt;HOTLINE MIAMI : WRONG NUMBER&lt;/h1&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/50_blessings.png&#34; alt=&#34;image&#34;&gt;&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

@@ -2,51 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://blueskybone.github.io/categories/android/</loc>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2025-01-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2025-01-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/manual/</loc>
+    <lastmod>2025-01-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/post/</loc>
+    <lastmod>2025-01-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/post/wsl2%E5%AE%89%E8%A3%85%E5%8F%8A%E8%BF%81%E7%A7%BB/</loc>
+    <lastmod>2025-01-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/android/</loc>
     <lastmod>2024-06-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blueskybone.github.io/post/android-post/</loc>
+    <loc>http://localhost:1313/post/android-post/</loc>
     <lastmod>2024-06-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blueskybone.github.io/categories/</loc>
-    <lastmod>2024-06-12T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blueskybone.github.io/</loc>
-    <lastmod>2024-06-12T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blueskybone.github.io/post/</loc>
-    <lastmod>2024-06-12T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blueskybone.github.io/categories/fmri/</loc>
+    <loc>http://localhost:1313/categories/fmri/</loc>
     <lastmod>2024-05-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blueskybone.github.io/post/fmri-tool-quick-usage/</loc>
+    <loc>http://localhost:1313/post/fmri-tool-quick-usage/</loc>
     <lastmod>2024-05-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blueskybone.github.io/post/image-test/</loc>
+    <loc>http://localhost:1313/post/image-test/</loc>
     <lastmod>2024-04-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blueskybone.github.io/categories/others/</loc>
+    <loc>http://localhost:1313/categories/others/</loc>
     <lastmod>2024-04-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blueskybone.github.io/categories/epigram/</loc>
+    <loc>http://localhost:1313/categories/epigram/</loc>
     <lastmod>2024-02-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blueskybone.github.io/post/epigram-00/</loc>
+    <loc>http://localhost:1313/post/epigram-00/</loc>
     <lastmod>2024-02-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blueskybone.github.io/categories/haskell/</loc>
+    <loc>http://localhost:1313/categories/haskell/</loc>
     <lastmod>2020-07-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blueskybone.github.io/post/learnhaskell/</loc>
+    <loc>http://localhost:1313/post/learnhaskell/</loc>
     <lastmod>2020-07-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blueskybone.github.io/donate/</loc>
+    <loc>http://localhost:1313/about/</loc>
   </url><url>
-    <loc>https://blueskybone.github.io/about/</loc>
+    <loc>http://localhost:1313/links/</loc>
   </url><url>
-    <loc>https://blueskybone.github.io/links/</loc>
-  </url><url>
-    <loc>https://blueskybone.github.io/tags/</loc>
+    <loc>http://localhost:1313/tags/</loc>
   </url>
 </urlset>

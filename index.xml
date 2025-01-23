@@ -2,64 +2,53 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Home on Blog</title>
-    <link>https://blueskybone.github.io/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content in Home on Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 12 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blueskybone.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 23 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WSL2安装及迁移</title>
+      <link>http://localhost:1313/post/wsl2%E5%AE%89%E8%A3%85%E5%8F%8A%E8%BF%81%E7%A7%BB/</link>
+      <pubDate>Thu, 23 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/wsl2%E5%AE%89%E8%A3%85%E5%8F%8A%E8%BF%81%E7%A7%BB/</guid>
+      <description>&lt;p&gt;自用。&lt;/p&gt;&#xA;&lt;p&gt;wsl2的官方一键式安装直接打两行命令从microsofy store下载安装就结束了，但通常我们连不上Microsoft Store。所以提供一个手动下载并安装的路径。&lt;/p&gt;&#xA;&lt;p&gt;另外安装WSL的虚拟硬盘默认是装到C盘，但C盘快爆了，还需要手动迁移到D盘。&lt;/p&gt;&#xA;&lt;p&gt;主要是今天终端开Ubuntu突然发现Hyper-v没了，然后一通操作数据全寄了。不过无所谓没啥重要的东西，重新装一遍。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/woods1815/p/15645611.html&#34;&gt;家庭版win10安装hyper-v&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;手动安装步骤&#34;&gt;手动安装步骤&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://learn.microsoft.com/zh-cn/windows/wsl/install-manual&#34;&gt;微软官方教程&lt;/a&gt; 安装WSL2的前置设置（开启功能，查看配置）到下载发行版之前的部分只需要看官方的教程。&lt;/p&gt;&#xA;&lt;p&gt;假设已经完成了前置设置。&lt;/p&gt;&#xA;&lt;h3 id=&#34;1-下载发行版&#34;&gt;1. 下载发行版&lt;/h3&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;如果 Microsoft Store 应用不可用，可使用以下链接来下载并手动安装 Linux 发行版：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://aka.ms/wslubuntu&#34;&gt;Ubuntu&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://wslstorestorage.blob.core.windows.net/wslblob/Ubuntu2404-240425.AppxBundle&#34;&gt;Ubuntu 24.04&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://aka.ms/wslubuntu2204&#34;&gt;Ubuntu 22.04 LTS&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://aka.ms/wslubuntu2004&#34;&gt;Ubuntu 20.04&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;官方页面还有其他发行版。我使用Ubuntu 22.04的版本&lt;/p&gt;&#xA;&lt;h3 id=&#34;2安装发行版&#34;&gt;2.安装发行版&lt;/h3&gt;&#xA;&lt;p&gt;下载完成后的文件 &lt;code&gt;Ubuntu2204-221101.AppxBundle&lt;/code&gt; ，后缀AppxBundle指定windows的应用安装程序打开文件，双击启动安装程序。安装完成后选择打开，或者手动打开Ubuntu.exe，路径在\AppData\Local\Microsoft\WindowsApps下。&lt;/p&gt;&#xA;&lt;p&gt;打开后输用户名密码，完成安装。&lt;/p&gt;&#xA;&lt;p&gt;此时 &lt;code&gt;wsl --list --verbose&lt;/code&gt; 已经可以检测到注册的ubuntu系统。&lt;/p&gt;&#xA;&lt;h2 id=&#34;迁移到d盘&#34;&gt;迁移到D盘&lt;/h2&gt;&#xA;&lt;p&gt;随着系统的使用WSL的占用会变得越来越大，对空间比较紧张的机器来说C盘的空间是寸土寸金的，这里通过wsl的备份与迁移的功能把它的虚拟硬盘空间迁移到D盘。（虽然微软提供这个功能的本意可能就只是备份和还原，比如换机器啊，机器坏了的情况等等）&lt;/p&gt;&#xA;&lt;h3 id=&#34;关闭虚拟机&#34;&gt;关闭虚拟机&lt;/h3&gt;&#xA;&lt;p&gt;&lt;code&gt; wsl --list --verbose&lt;/code&gt; 查看虚拟机名称和状态，返回结果像 &lt;code&gt;Ubuntu    Running         2&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;wsl --shutdown Ubuntu&lt;/code&gt; 关闭虚拟机&lt;/p&gt;&#xA;&lt;h3 id=&#34;迁移到d盘-1&#34;&gt;迁移到D盘&lt;/h3&gt;&#xA;&lt;p&gt;&lt;code&gt;wsl --export Ubuntu D:\Ubuntu_WSL\Ubuntu.tar&lt;/code&gt; 确定在目标路径看到备份文件后，&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;wsl --unregister Ubuntu&lt;/code&gt; 注销并卸载WSL 发行版（操作不可逆，确保已有备份文件）&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;wsl --import Ubuntu D:\Ubuntu_WSL D:\Ubuntu_WSL\Ubuntu.tar&lt;/code&gt; 恢复到D盘，此时可以在目标目录下看到 &lt;code&gt;ext4.vhdx&lt;/code&gt; 这是虚拟硬盘映像文件。迁移完成。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>android-post</title>
-      <link>https://blueskybone.github.io/post/android-post/</link>
+      <link>http://localhost:1313/post/android-post/</link>
       <pubDate>Wed, 12 Jun 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://blueskybone.github.io/post/android-post/</guid>
-      <description>Solutions to some minor problems in Android development.
-collapse quicksetting panel instead of using StartActivityAndCollapse(), simply invoke a empty Dialog can touch the same effect.
-filter logcat in Android Studio package:mine -tag=:gralloc4 </description>
+      <guid>http://localhost:1313/post/android-post/</guid>
+      <description>&lt;p&gt;Solutions to some minor problems in Android development.&lt;/p&gt;&#xA;&lt;h2 id=&#34;collapse-quicksetting-panel&#34;&gt;collapse quicksetting panel&lt;/h2&gt;&#xA;&lt;p&gt;instead of using StartActivityAndCollapse(), simply invoke a empty Dialog can touch the same effect.&lt;/p&gt;&#xA;&lt;h2 id=&#34;filter-logcat-in-android-studio&#34;&gt;filter logcat in Android Studio&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;package:mine -tag=:gralloc4&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
-    
     <item>
       <title>fMRI tools quick usage</title>
-      <link>https://blueskybone.github.io/post/fmri-tool-quick-usage/</link>
+      <link>http://localhost:1313/post/fmri-tool-quick-usage/</link>
       <pubDate>Thu, 23 May 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://blueskybone.github.io/post/fmri-tool-quick-usage/</guid>
-      <description>dcm2niix dcm2niix -f {filename} {dirname}
-\MRIcroGL\Resources\dcm2niix.exe -f {output_name} -p y -z y {input_dir}
-官方的dcm2niix对某些dcm文件无法使用，用MRIcroGL路径下的dcm2niix。
-tips: dcm2niix不能使用多线程（显示进程状态D休眠，可能由于磁盘IO死锁引起，不确定，等待测试）
-python：
-import os output_path = r&amp;#39;E:\FunNii_SCZ&amp;#39; os.system(r&amp;#39;mkdir -p {}&amp;#39;.format(output_path)) base_path = r&amp;#39;E:\FunRaw_SCZ&amp;#39; for sub_name in os.listdir(base_path): subject = base_path + &amp;#39;\\&amp;#39; + sub_name subject_out = output_path + &amp;#39;\\&amp;#39; + &amp;#39;sub_&amp;#39; + sub_name os.system(r&amp;#39;mkdir -p {}&amp;#39;.format(subject_out)) for seq in os.listdir(subject): input_dir = subject + &amp;#39;\\&amp;#39; + seq os.system(r&amp;#39;D:\matlab_toolbox\MRIcroGL\Resources\dcm2niix.exe -f {} -p y -z y {}&amp;#39;.format(f&amp;#34;{sub_name}&amp;#34;, input_dir)) os.</description>
+      <guid>http://localhost:1313/post/fmri-tool-quick-usage/</guid>
+      <description>&lt;h3 id=&#34;dcm2niix&#34;&gt;dcm2niix&lt;/h3&gt;&#xA;&lt;p&gt;&lt;code&gt;dcm2niix -f {filename} {dirname}&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;\MRIcroGL\Resources\dcm2niix.exe -f {output_name} -p y -z y {input_dir}&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;官方的dcm2niix对某些dcm文件无法使用，用MRIcroGL路径下的dcm2niix。&lt;/p&gt;&#xA;&lt;p&gt;tips: dcm2niix不能使用多线程（显示进程状态D休眠，可能由于磁盘IO死锁引起，不确定，等待测试）&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;python：&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; os&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;output_path &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;E:\FunNii_SCZ&amp;#39;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;os&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;system(&lt;span style=&#34;color:#e6db74&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;mkdir -p &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;format(output_path))&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;base_path &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;E:\FunRaw_SCZ&amp;#39;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; sub_name &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; os&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;listdir(base_path):&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    subject &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; base_path &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; sub_name&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    subject_out &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; output_path &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;sub_&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; sub_name&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    os&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;system(&lt;span style=&#34;color:#e6db74&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;mkdir -p &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;format(subject_out))&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; seq &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; os&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;listdir(subject):&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        input_dir &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; subject &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; seq&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        os&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;system(&lt;span style=&#34;color:#e6db74&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;D:\matlab_toolbox\MRIcroGL\Resources\dcm2niix.exe -f &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; -p y -z y &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;format(&lt;span style=&#34;color:#e6db74&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{&lt;/span&gt;sub_name&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;, input_dir))&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        os&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;system(&lt;span style=&#34;color:#e6db74&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;move &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;format(&lt;span style=&#34;color:#e6db74&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{&lt;/span&gt;input_dir&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{&lt;/span&gt;sub_name&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;.nii.gz&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{&lt;/span&gt;subject_out&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;))&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;bat代码未测试：(generated by Chatgpt3.5 converted from Python code above.)&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>image-test</title>
-      <link>https://blueskybone.github.io/post/image-test/</link>
+      <link>http://localhost:1313/post/image-test/</link>
       <pubDate>Sun, 28 Apr 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://blueskybone.github.io/post/image-test/</guid>
-      <description>HOTLINE MIAMI : WRONG NUMBER </description>
+      <guid>http://localhost:1313/post/image-test/</guid>
+      <description>&lt;h1 id=&#34;hotline-miami--wrong-number&#34;&gt;HOTLINE MIAMI : WRONG NUMBER&lt;/h1&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/50_blessings.png&#34; alt=&#34;image&#34;&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Epigram-00</title>
-      <link>https://blueskybone.github.io/post/epigram-00/</link>
+      <link>http://localhost:1313/post/epigram-00/</link>
       <pubDate>Thu, 01 Feb 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://blueskybone.github.io/post/epigram-00/</guid>
-      <description>聞いたところによれば「大暮はもう歳だしこれで引退して余生を過ごすらしいぜ、なんて囁かれている」らしい、です。そうなれればいいな、なんて思いつつ、現実はそんな甘くはないし僕自身やりたいことは山積みで。化の連載が終わった後も、5年前からの仕事を仕上げてる途中で、結局全然休めていませんし。これが終わったら、少し体と心をクリアにして、今年の終わり頃には連載をどこかで始めるつもりです。でも、今はまだ完全なニュートラルで、具体的には何ひとつ決まってません。ちなみに僕のスパンで考えると、今年終わり頃に連載というのはもう結構ギリで、夏には作業始めないと間に合わないんですよね。本音を言えば1年ぐらい休みたいところですが、それやるともう次の漫画を描ける気がしない。僕はきっとサメとかマグロと同じで、泳ぎ続けないと漫画家として死んでしまう生き物なので。ぼちぼちと構想練りながら相変わらず漫画のことばっかり考えています。それもまた幸せですし、恵まれているんだと思います。(グレ吉)</description>
+      <guid>http://localhost:1313/post/epigram-00/</guid>
+      <description>&lt;p&gt;聞いたところによれば「大暮はもう歳だしこれで引退して余生を過ごすらしいぜ、なんて囁かれている」らしい、です。そうなれればいいな、なんて思いつつ、現実はそんな甘くはないし僕自身やりたいことは山積みで。化の連載が終わった後も、5年前からの仕事を仕上げてる途中で、結局全然休めていませんし。これが終わったら、少し体と心をクリアにして、今年の終わり頃には連載をどこかで始めるつもりです。でも、今はまだ完全なニュートラルで、具体的には何ひとつ決まってません。ちなみに僕のスパンで考えると、今年終わり頃に連載というのはもう結構ギリで、夏には作業始めないと間に合わないんですよね。本音を言えば1年ぐらい休みたいところですが、それやるともう次の漫画を描ける気がしない。僕はきっとサメとかマグロと同じで、泳ぎ続けないと漫画家として死んでしまう生き物なので。ぼちぼちと構想練りながら相変わらず漫画のことばっかり考えています。それもまた幸せですし、恵まれているんだと思います。(グレ吉)&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>learnyouahaskell</title>
-      <link>https://blueskybone.github.io/post/learnhaskell/</link>
+      <link>http://localhost:1313/post/learnhaskell/</link>
       <pubDate>Thu, 23 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://blueskybone.github.io/post/learnhaskell/</guid>
-      <description>&lt;p&gt;教材：&lt;a href=&#34;http://learnyouahaskell.com/&#34;&gt;learnyouahaskell&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;环境：&lt;a href=&#34;https://www.haskell.org/ghc/download_ghc_9_2_3.html#windows64&#34;&gt;Windows-GHC-9.23-Download&lt;/a&gt;  only need download GHC for windows cmd.&lt;/p&gt;
-&lt;p&gt;International week course&lt;/p&gt;</description>
+      <guid>http://localhost:1313/post/learnhaskell/</guid>
+      <description>&lt;p&gt;教材：&lt;a href=&#34;http://learnyouahaskell.com/&#34;&gt;learnyouahaskell&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;环境：&lt;a href=&#34;https://www.haskell.org/ghc/download_ghc_9_2_3.html#windows64&#34;&gt;Windows-GHC-9.23-Download&lt;/a&gt;  only need download GHC for windows cmd.&lt;/p&gt;&#xA;&lt;p&gt;International week course&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>
