@@ -9,7 +9,7 @@
     <lastBuildDate>Thu, 23 Jan 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>WSL2安装及迁移</title>
+      <title>WSL2 installation and migration</title>
       <link>http://localhost:1313/post/wsl2%E5%AE%89%E8%A3%85%E5%8F%8A%E8%BF%81%E7%A7%BB/</link>
       <pubDate>Thu, 23 Jan 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/post/wsl2%E5%AE%89%E8%A3%85%E5%8F%8A%E8%BF%81%E7%A7%BB/</guid>
@@ -37,14 +37,14 @@
       <description>&lt;h1 id=&#34;hotline-miami--wrong-number&#34;&gt;HOTLINE MIAMI : WRONG NUMBER&lt;/h1&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/50_blessings.png&#34; alt=&#34;image&#34;&gt;&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Epigram-00</title>
-      <link>http://localhost:1313/post/epigram-00/</link>
+      <title>text-test</title>
+      <link>http://localhost:1313/post/text-test/</link>
       <pubDate>Thu, 01 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/epigram-00/</guid>
+      <guid>http://localhost:1313/post/text-test/</guid>
       <description>&lt;p&gt;聞いたところによれば「大暮はもう歳だしこれで引退して余生を過ごすらしいぜ、なんて囁かれている」らしい、です。そうなれればいいな、なんて思いつつ、現実はそんな甘くはないし僕自身やりたいことは山積みで。化の連載が終わった後も、5年前からの仕事を仕上げてる途中で、結局全然休めていませんし。これが終わったら、少し体と心をクリアにして、今年の終わり頃には連載をどこかで始めるつもりです。でも、今はまだ完全なニュートラルで、具体的には何ひとつ決まってません。ちなみに僕のスパンで考えると、今年終わり頃に連載というのはもう結構ギリで、夏には作業始めないと間に合わないんですよね。本音を言えば1年ぐらい休みたいところですが、それやるともう次の漫画を描ける気がしない。僕はきっとサメとかマグロと同じで、泳ぎ続けないと漫画家として死んでしまう生き物なので。ぼちぼちと構想練りながら相変わらず漫画のことばっかり考えています。それもまた幸せですし、恵まれているんだと思います。(グレ吉)&lt;/p&gt;</description>
     </item>
     <item>
-      <title>learnyouahaskell</title>
+      <title>learn you haskell</title>
       <link>http://localhost:1313/post/learnhaskell/</link>
       <pubDate>Thu, 23 Jul 2020 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/post/learnhaskell/</guid>
