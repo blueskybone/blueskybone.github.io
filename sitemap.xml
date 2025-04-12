@@ -3,16 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-01-23T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/post/docker-compose/</loc>
+    <lastmod>2025-04-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-01-23T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/manual/</loc>
-    <lastmod>2025-01-23T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/post/</loc>
-    <lastmod>2025-01-23T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/post/clash-for-linux/</loc>
+    <lastmod>2025-04-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/post/wsl2%E5%AE%89%E8%A3%85%E5%8F%8A%E8%BF%81%E7%A7%BB/</loc>
     <lastmod>2025-01-23T00:00:00+00:00</lastmod>

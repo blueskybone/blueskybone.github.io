@@ -6,8 +6,22 @@
     <description>Recent content in Posts on Blog</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 23 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 12 Apr 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>docker compose</title>
+      <link>http://localhost:1313/post/docker-compose/</link>
+      <pubDate>Sat, 12 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/docker-compose/</guid>
+      <description>&lt;h3 id=&#34;proxy配置&#34;&gt;proxy配置：&lt;/h3&gt;&#xA;&lt;p&gt;不要使用powershell来配置proxy，使用cmd。&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;set http_proxy&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;http://localhost:8080&amp;#34;&lt;/span&gt;&#x9;&lt;span style=&#34;color:#75715e&#34;&gt;#改成你的端口号&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;set https_proxy&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://localhost:8080&amp;#34;&lt;/span&gt;&#x9;&lt;span style=&#34;color:#75715e&#34;&gt;#改成你的端口号&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;不设置代理，docker build的时候容易卡在pull环境阶段。&lt;/p&gt;&#xA;&lt;h3 id=&#34;换源&#34;&gt;换源：&lt;/h3&gt;</description>
+    </item>
+    <item>
+      <title>clash for linux</title>
+      <link>http://localhost:1313/post/clash-for-linux/</link>
+      <pubDate>Fri, 11 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/clash-for-linux/</guid>
+      <description>&lt;p&gt;clash for linux 下载及使用&lt;/p&gt;&#xA;&lt;p&gt;原仓库跑路了，github有人传了备份。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/Elegycloud/clash-for-linux-backup&#34;&gt;https://github.com/Elegycloud/clash-for-linux-backup&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/wnlen/clash-for-linux&#34;&gt;https://github.com/wnlen/clash-for-linux&lt;/a&gt;&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;## clone&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git clone https://github.com/Elegycloud/clash-for-linux-backup.git clash-for-linux&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;or&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git clone https://github.com/wnlen/clash-for-linux.git&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;## edit&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd clash-for-linux&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vim .env&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;## 然后改CLASH_URL字段换成你的订阅地址&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;## start&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo bash start.sh&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;source /etc/profile.d/clash.sh&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;proxy_on&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;其他命令见原仓库的readme&lt;/p&gt;</description>
+    </item>
     <item>
       <title>WSL2 installation and migration</title>
       <link>http://localhost:1313/post/wsl2%E5%AE%89%E8%A3%85%E5%8F%8A%E8%BF%81%E7%A7%BB/</link>

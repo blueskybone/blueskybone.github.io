@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="A simple, minimal blog for those who love text.">
-    <title>Posts | Blog</title>
+    <title>docker compose | Blog</title>
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     <link rel="stylesheet" href="http://localhost:1313/css/theme-override.css"><link rel="stylesheet" href="http://localhost:1313/css/atom-one-light.min.css">
@@ -56,59 +56,33 @@
   <body>
     <br/>
 
+<div class="article-meta">
+<h1><span class="title">docker compose</span></h1>
+
+<h3 class="date">2025/04/12</h3>
+<p class="terms">
+  
+  
+  Categories: <a href="/categories/manual">Manual</a> 
+  
+  
+  
+  
+</p>
+</div>
+
 
 <div class="content-wrapper">
+  <main>
+    <h3 id="proxy配置">proxy配置：</h3>
+<p>不要使用powershell来配置proxy，使用cmd。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>set http_proxy<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://localhost:8080&#34;</span>	<span style="color:#75715e">#改成你的端口号</span>
+</span></span><span style="display:flex;"><span>set https_proxy<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://localhost:8080&#34;</span>	<span style="color:#75715e">#改成你的端口号</span>
+</span></span></code></pre></div><p>不设置代理，docker build的时候容易卡在pull环境阶段。</p>
+<h3 id="换源">换源：</h3>
 
-  <h1>Posts</h1>
-  
-
-  
-
-  <ul>
-     
-     
-     
-     <li>
-       <span class="date">2025/04/12</span>
-       <a href="/post/docker-compose/">docker compose</a>
-     </li>
-     
-     <li>
-       <span class="date">2025/04/11</span>
-       <a href="/post/clash-for-linux/">clash for linux</a>
-     </li>
-     
-     <li>
-       <span class="date">2025/01/23</span>
-       <a href="/post/wsl2%E5%AE%89%E8%A3%85%E5%8F%8A%E8%BF%81%E7%A7%BB/">WSL2 installation and migration</a>
-     </li>
-     
-     <li>
-       <span class="date">2024/06/12</span>
-       <a href="/post/android-post/">android-post</a>
-     </li>
-     
-     <li>
-       <span class="date">2024/05/23</span>
-       <a href="/post/fmri-tool-quick-usage/">fMRI tools quick usage</a>
-     </li>
-     
-     <li>
-       <span class="date">2024/04/28</span>
-       <a href="/post/image-test/">image-test</a>
-     </li>
-     
-     <li>
-       <span class="date">2024/02/01</span>
-       <a href="/post/text-test/">text-test</a>
-     </li>
-     
-     <li>
-       <span class="date">2020/07/23</span>
-       <a href="/post/learnhaskell/">learn you haskell</a>
-     </li>
-     
-   </ul>
+    <a href="/"> >> Home</a>
+  </main>
 </div>
     <footer>
       
