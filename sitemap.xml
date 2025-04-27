@@ -2,66 +2,64 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/categories/android/</loc>
+    <loc>https://blueskybone.github.io/categories/android/</loc>
     <lastmod>2025-04-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/android-screenshot/</loc>
+    <loc>https://blueskybone.github.io/post/android-screenshot/</loc>
     <lastmod>2025-04-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://blueskybone.github.io/categories/</loc>
     <lastmod>2025-04-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://blueskybone.github.io/</loc>
     <lastmod>2025-04-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/</loc>
+    <loc>https://blueskybone.github.io/post/</loc>
     <lastmod>2025-04-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/fmri/</loc>
+    <loc>https://blueskybone.github.io/categories/fmri/</loc>
     <lastmod>2025-04-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/fmri-data-process/</loc>
+    <loc>https://blueskybone.github.io/post/fmri-data-process/</loc>
     <lastmod>2025-04-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/docker-compose/</loc>
+    <loc>https://blueskybone.github.io/post/docker-compose/</loc>
     <lastmod>2025-04-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/manual/</loc>
+    <loc>https://blueskybone.github.io/categories/manual/</loc>
     <lastmod>2025-04-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/clash-for-linux/</loc>
+    <loc>https://blueskybone.github.io/post/clash-for-linux/</loc>
     <lastmod>2025-04-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/wsl2%E5%AE%89%E8%A3%85%E5%8F%8A%E8%BF%81%E7%A7%BB/</loc>
+    <loc>https://blueskybone.github.io/post/wsl2%E5%AE%89%E8%A3%85%E5%8F%8A%E8%BF%81%E7%A7%BB/</loc>
     <lastmod>2025-01-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/android-post/</loc>
+    <loc>https://blueskybone.github.io/post/android-post/</loc>
     <lastmod>2024-06-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/fmri-tool-quick-usage/</loc>
+    <loc>https://blueskybone.github.io/post/fmri-tool-quick-usage/</loc>
     <lastmod>2024-05-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/image-test/</loc>
+    <loc>https://blueskybone.github.io/post/image-test/</loc>
     <lastmod>2024-04-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/others/</loc>
+    <loc>https://blueskybone.github.io/categories/others/</loc>
     <lastmod>2024-04-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/text-test/</loc>
+    <loc>https://blueskybone.github.io/post/text-test/</loc>
     <lastmod>2024-02-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/haskell/</loc>
+    <loc>https://blueskybone.github.io/categories/haskell/</loc>
     <lastmod>2020-07-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/learnhaskell/</loc>
+    <loc>https://blueskybone.github.io/post/learnhaskell/</loc>
     <lastmod>2020-07-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/fmri/</loc>
+    <loc>https://blueskybone.github.io/about/</loc>
   </url><url>
-    <loc>http://localhost:1313/about/</loc>
+    <loc>https://blueskybone.github.io/links/</loc>
   </url><url>
-    <loc>http://localhost:1313/links/</loc>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://blueskybone.github.io/tags/</loc>
   </url>
 </urlset>

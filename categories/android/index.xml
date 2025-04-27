@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Android on Blog</title>
-    <link>http://localhost:1313/categories/android/</link>
-    <description>Recent content in Android on Blog</description>
+    <title>Android on blog</title>
+    <link>https://blueskybone.github.io/categories/android/</link>
+    <description>Recent content in Android on blog</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
     <lastBuildDate>Sun, 27 Apr 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/android/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blueskybone.github.io/categories/android/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>android-screenshot-without-root</title>
-      <link>http://localhost:1313/post/android-screenshot/</link>
+      <link>https://blueskybone.github.io/post/android-screenshot/</link>
       <pubDate>Sun, 27 Apr 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/android-screenshot/</guid>
+      <guid>https://blueskybone.github.io/post/android-screenshot/</guid>
       <description>&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;&#xA;&lt;p&gt;提供一种不用反射无需root的方法，在安卓中实现应用外截屏。&lt;/p&gt;&#xA;&lt;p&gt;谷歌并没有开放截屏的API，其他各种方法要么用反射触发系统截屏，要么就是我看不懂的需要root的方法。想要用原生android的方法截屏只能用一种繁琐的办法。&lt;/p&gt;&#xA;&lt;h3 id=&#34;原理&#34;&gt;原理：&lt;/h3&gt;&#xA;&lt;p&gt;首先在安卓应用内部截屏，取出Activity的UI层缓冲即可。但是要取应用外部的缓冲层怎么做呢？我们想到的歪门邪道就是创建一个透明的Activity覆盖在其他应用上，然后再按照原来的方法取出Activity的缓冲，这样通过这种透明的方式把下层的画面信息给录进来了，曲线救国达到在应用外截图的目的。&lt;/p&gt;&#xA;&lt;h3 id=&#34;流程分解&#34;&gt;流程分解：&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;动态获取录屏权限（保存此Intent）&lt;/li&gt;&#xA;&lt;li&gt;使用该Intent创建MediaProjection。&lt;/li&gt;&#xA;&lt;li&gt;启动一个透明的Activity&lt;/li&gt;&#xA;&lt;li&gt;启动一个前台服务Notification显式提示用户当前正在获取屏幕。（谷歌标准如此要求，不然会报错）&lt;/li&gt;&#xA;&lt;li&gt;使用MediaProjection创建VirtualDisplay&lt;/li&gt;&#xA;&lt;li&gt;创建ImageReader，获取图片缓冲（实际上需要的图片）&lt;/li&gt;&#xA;&lt;li&gt;释放资源：VirtualDisplay，ImageReader。（不要释放MediaProjection，一旦释放只能重新动态获取录屏权限，而不能用保存的Intent来生成，此改动疑似A14版本开始生效，以前可以通过保存intent重复创建MediaProjection，部分过时博客依然采用此方法。）&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;实现细节&#34;&gt;实现细节：&lt;/h3&gt;&#xA;&lt;p&gt;因为总要开启一个Service用来提示用户，所以整个过程托管在一个Service实现，包括MediaProjection的存储。服务自杀通过定时器完成。每次需要使用截图时Start Service即可。&lt;/p&gt;&#xA;&lt;h3 id=&#34;demo&#34;&gt;DEMO&lt;/h3&gt;&#xA;&lt;p&gt;github demo: &lt;a href=&#34;https://github.com/blueskybone/ScreenshotDemo&#34;&gt;https://github.com/blueskybone/ScreenshotDemo&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>android-post</title>
-      <link>http://localhost:1313/post/android-post/</link>
+      <link>https://blueskybone.github.io/post/android-post/</link>
       <pubDate>Wed, 12 Jun 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/android-post/</guid>
+      <guid>https://blueskybone.github.io/post/android-post/</guid>
       <description>&lt;p&gt;Solutions to some minor problems in Android development.&lt;/p&gt;&#xA;&lt;h2 id=&#34;collapse-quicksetting-panel&#34;&gt;collapse quicksetting panel&lt;/h2&gt;&#xA;&lt;p&gt;instead of using StartActivityAndCollapse(), simply invoke a empty Dialog can touch the same effect.&lt;/p&gt;&#xA;&lt;h2 id=&#34;filter-logcat-in-android-studio&#34;&gt;filter logcat in Android Studio&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;package:mine -tag=:gralloc4&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
   </channel>

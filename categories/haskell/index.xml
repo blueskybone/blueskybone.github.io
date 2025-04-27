@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Haskell on Blog</title>
-    <link>http://localhost:1313/categories/haskell/</link>
-    <description>Recent content in Haskell on Blog</description>
+    <title>Haskell on blog</title>
+    <link>https://blueskybone.github.io/categories/haskell/</link>
+    <description>Recent content in Haskell on blog</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
     <lastBuildDate>Thu, 23 Jul 2020 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/haskell/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blueskybone.github.io/categories/haskell/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>learn you haskell</title>
-      <link>http://localhost:1313/post/learnhaskell/</link>
+      <link>https://blueskybone.github.io/post/learnhaskell/</link>
       <pubDate>Thu, 23 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/learnhaskell/</guid>
+      <guid>https://blueskybone.github.io/post/learnhaskell/</guid>
       <description>&lt;p&gt;教材：&lt;a href=&#34;http://learnyouahaskell.com/&#34;&gt;learnyouahaskell&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;环境：&lt;a href=&#34;https://www.haskell.org/ghc/download_ghc_9_2_3.html#windows64&#34;&gt;Windows-GHC-9.23-Download&lt;/a&gt;  only need download GHC for windows cmd.&lt;/p&gt;&#xA;&lt;p&gt;International week course&lt;/p&gt;</description>
     </item>
   </channel>
