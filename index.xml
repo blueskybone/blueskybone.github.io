@@ -6,8 +6,22 @@
     <description>Recent content in Home on Blog</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 12 Apr 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 27 Apr 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>android-screenshot-without-root</title>
+      <link>http://localhost:1313/post/android-screenshot/</link>
+      <pubDate>Sun, 27 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/android-screenshot/</guid>
+      <description>&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;&#xA;&lt;p&gt;提供一种不用反射无需root的方法，在安卓中实现应用外截屏。&lt;/p&gt;&#xA;&lt;p&gt;谷歌并没有开放截屏的API，其他各种方法要么用反射触发系统截屏，要么就是我看不懂的需要root的方法。想要用原生android的方法截屏只能用一种繁琐的办法。&lt;/p&gt;&#xA;&lt;h3 id=&#34;原理&#34;&gt;原理：&lt;/h3&gt;&#xA;&lt;p&gt;首先在安卓应用内部截屏，取出Activity的UI层缓冲即可。但是要取应用外部的缓冲层怎么做呢？我们想到的歪门邪道就是创建一个透明的Activity覆盖在其他应用上，然后再按照原来的方法取出Activity的缓冲，这样通过这种透明的方式把下层的画面信息给录进来了，曲线救国达到在应用外截图的目的。&lt;/p&gt;&#xA;&lt;h3 id=&#34;流程分解&#34;&gt;流程分解：&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;动态获取录屏权限（保存此Intent）&lt;/li&gt;&#xA;&lt;li&gt;使用该Intent创建MediaProjection。&lt;/li&gt;&#xA;&lt;li&gt;启动一个透明的Activity&lt;/li&gt;&#xA;&lt;li&gt;启动一个前台服务Notification显式提示用户当前正在获取屏幕。（谷歌标准如此要求，不然会报错）&lt;/li&gt;&#xA;&lt;li&gt;使用MediaProjection创建VirtualDisplay&lt;/li&gt;&#xA;&lt;li&gt;创建ImageReader，获取图片缓冲（实际上需要的图片）&lt;/li&gt;&#xA;&lt;li&gt;释放资源：VirtualDisplay，ImageReader。（不要释放MediaProjection，一旦释放只能重新动态获取录屏权限，而不能用保存的Intent来生成，此改动疑似A14版本开始生效，以前可以通过保存intent重复创建MediaProjection，部分过时博客依然采用此方法。）&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;实现细节&#34;&gt;实现细节：&lt;/h3&gt;&#xA;&lt;p&gt;因为总要开启一个Service用来提示用户，所以整个过程托管在一个Service实现，包括MediaProjection的存储。服务自杀通过定时器完成。每次需要使用截图时Start Service即可。&lt;/p&gt;&#xA;&lt;h3 id=&#34;demo&#34;&gt;DEMO&lt;/h3&gt;&#xA;&lt;p&gt;github demo: &lt;a href=&#34;https://github.com/blueskybone/ScreenshotDemo&#34;&gt;https://github.com/blueskybone/ScreenshotDemo&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>fMRI data process</title>
+      <link>http://localhost:1313/post/fmri-data-process/</link>
+      <pubDate>Fri, 18 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/fmri-data-process/</guid>
+      <description>&lt;p&gt;之前的处理/接触过的：&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;功能磁共振(fMRI)数据处理业务&#xA;弥散加权成像（DWI/dMRI）数据处理&#xA;脑结构磁共振成像数据处理业务（T1)&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;主要集中在fMRI，熟悉dicom格式文件，了解功能连接组图相关内容，&lt;/p&gt;&#xA;&lt;p&gt;DWI/DTI主要是帮其他人看过文章写过代码处理过数据。&lt;/p&gt;&#xA;&lt;h2 id=&#34;功能磁共振fmri数据处理业务&#34;&gt;功能磁共振(fMRI)数据处理业务&lt;/h2&gt;&#xA;&lt;h3 id=&#34;一数据质量检查&#34;&gt;&lt;strong&gt;一、数据质量检查&lt;/strong&gt;&lt;/h3&gt;&#xA;&lt;h3 id=&#34;二数据预处理&#34;&gt;&lt;strong&gt;二、数据预处理&lt;/strong&gt;&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 数据格式转换&lt;/li&gt;&#xA;&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 去除不稳定时间点&lt;/li&gt;&#xA;&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 时间层校正&lt;/li&gt;&#xA;&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 头动校正&lt;/li&gt;&#xA;&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 空间标准化&lt;/li&gt;&#xA;&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 空间平滑&lt;/li&gt;&#xA;&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 去线形漂移&lt;/li&gt;&#xA;&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 去尖峰&lt;/li&gt;&#xA;&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 滤波&lt;/li&gt;&#xA;&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 回归协变量&lt;/li&gt;&#xA;&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 去除头动过大的时间点&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;三常规静息态fmri指标分析&#34;&gt;&lt;strong&gt;三、常规静息态fMRI指标分析&lt;/strong&gt;&lt;/h3&gt;&#xA;&lt;h3 id=&#34;四task-fmri数据处理&#34;&gt;&lt;strong&gt;四、Task-fMRI数据处理：&lt;/strong&gt;&lt;/h3&gt;&#xA;&lt;h3 id=&#34;五独立成分分析ica&#34;&gt;&lt;strong&gt;五、独立成分分析（ICA）&lt;/strong&gt;&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;（1）独立成分分解。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;（2）ICA空间分析。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;（3）FNC/dFNC分析。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;（4）结果可视化。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;六脑连接组脑网络数据分析&#34;&gt;&lt;strong&gt;六、脑连接组（脑网络）数据分析&lt;/strong&gt;&lt;/h3&gt;&#xA;&lt;p&gt;&lt;em&gt;研究者们越来越认识到，大脑是一个整体，而认识这个整体的一种方式，是把大脑视为由不同节点构成的脑网络。&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;**（1）静息态功能脑网络的构建。**基于适当的脑图谱（如AAL atlas），计算所有脑区间的功能连接，构建脑网络。&lt;/p&gt;&#xA;&lt;p&gt;**（2）图论指标分析。**图论（graph theory）是分析脑连接组的有力数学工具，图论指标可以刻画脑网络的整体行为或者局部行为。可以计算的图论指标有：&lt;/p&gt;&#xA;&lt;p&gt;**全局指标：**小世界属性（small-world）、最短路径（shortest length）、集聚系数（clustering coefficient）、全局效率（global efficiency）、局部效率（local efficiency）、同配性（assortativity）、同步性（synchronization）、层级性（hierarchy）等。&lt;/p&gt;&#xA;&lt;p&gt;**局部指标：**节点效率（nodal efficiency）、节点局部效率（nodal local efficiency）、节点度中心性（nodal degree centrality）、节点介中心性（nodal betweenness centrality）、节点集聚系数(nodal clustering coefficient)、节点最短路径（nodal shortest length）等。&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;（3）连边分析:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;​    **1. 直接比较不同群体的脑连接组的差异，**基于NBS校正方法，可以识别异常的脑网络连通成分；&lt;/p&gt;&#xA;&lt;p&gt;​    **2. Rich-club分析，**分析脑网络是否具备Rich-club属性，挑选出脑网络中的核心脑区，计算核心脑区、非核心脑区内部及其之间的连接强度；&lt;/p&gt;&#xA;&lt;p&gt;​    **3. 模块化连边分析，**将脑网络划分为若干个内部联系紧密的模块，计算模块间的连接强度&lt;/p&gt;</description>
+    </item>
     <item>
       <title>docker compose</title>
       <link>http://localhost:1313/post/docker-compose/</link>
@@ -63,6 +77,13 @@
       <pubDate>Thu, 23 Jul 2020 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/post/learnhaskell/</guid>
       <description>&lt;p&gt;教材：&lt;a href=&#34;http://learnyouahaskell.com/&#34;&gt;learnyouahaskell&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;环境：&lt;a href=&#34;https://www.haskell.org/ghc/download_ghc_9_2_3.html#windows64&#34;&gt;Windows-GHC-9.23-Download&lt;/a&gt;  only need download GHC for windows cmd.&lt;/p&gt;&#xA;&lt;p&gt;International week course&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/fmri/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/fmri/</guid>
+      <description>&lt;p&gt;之前做过的事情：&lt;/p&gt;&#xA;&lt;p&gt;fMRI数据预处理（dcm2nii，FSL，FreeSurfer，AFNI，brainstorm，SPM12，DPABI）&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;时间层校正，头动校正，空间标准化，高斯平滑，去噪&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;个体水平分析&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;任务态：GLM建模&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;静息态：计算功能连接矩阵或ICA成分。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;组水平分析&lt;/p&gt;&#xA;&lt;p&gt;结果可视化与解释&lt;/p&gt;&#xA;&lt;p&gt;CAPs，功能连接矩阵分析（区域提取）&lt;/p&gt;&#xA;&lt;p&gt;基本技能：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;fMRI数据预处理（dcm2nii，FSL，FreeSurfer，AFNI，brainstorm，SPM12，DPABI）&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;时间层校正，头动校正，空间标准化，高斯平滑，去噪&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;编程技能：MATLAB，python，R，shell脚本均可熟练编写调试，熟悉linux系统。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;之前做过的事情：&lt;/p&gt;&#xA;&lt;p&gt;软技能：线性代数，概率论达到熟练掌握的程度，对线性变换，多种概率模型的使用场景和参数含义均能理解。&lt;/p&gt;&#xA;&lt;p&gt;没碰过的事情：DTI弥散张量成像。&lt;/p&gt;&#xA;&lt;p&gt;不熟练的事情：&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="A simple, minimal blog for those who love text.">
-    <title>Categories | Blog</title>
+    <title>android-screenshot-without-root | Blog</title>
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     <link rel="stylesheet" href="http://localhost:1313/css/theme-override.css"><link rel="stylesheet" href="http://localhost:1313/css/atom-one-light.min.css">
@@ -26,7 +26,7 @@
       </li>
       
       
-      <li class="pull-left current">
+      <li class="pull-left ">
         <a href="/categories/">~/categories</a>
       </li>
       
@@ -56,33 +56,47 @@
   <body>
     <br/>
 
+<div class="article-meta">
+<h1><span class="title">android-screenshot-without-root</span></h1>
 
-<h1>Categories</h1>
+<h3 class="date">2025/04/27</h3>
+<p class="terms">
+  
+  
+  Categories: <a href="/categories/android">Android</a> 
+  
+  
+  
+  
+</p>
+</div>
 
-<ul class="terms">
-  
-  <li>
-    <a href="http://localhost:1313/categories/android/">Android</a> (2)
-  </li>
-  
-  <li>
-    <a href="http://localhost:1313/categories/fmri/">FMRI</a> (2)
-  </li>
-  
-  <li>
-    <a href="http://localhost:1313/categories/haskell/">Haskell</a> (1)
-  </li>
-  
-  <li>
-    <a href="http://localhost:1313/categories/manual/">Manual</a> (3)
-  </li>
-  
-  <li>
-    <a href="http://localhost:1313/categories/others/">Others</a> (2)
-  </li>
-  
+
+<div class="content-wrapper">
+  <main>
+    <h3 id="introduction">Introduction</h3>
+<p>提供一种不用反射无需root的方法，在安卓中实现应用外截屏。</p>
+<p>谷歌并没有开放截屏的API，其他各种方法要么用反射触发系统截屏，要么就是我看不懂的需要root的方法。想要用原生android的方法截屏只能用一种繁琐的办法。</p>
+<h3 id="原理">原理：</h3>
+<p>首先在安卓应用内部截屏，取出Activity的UI层缓冲即可。但是要取应用外部的缓冲层怎么做呢？我们想到的歪门邪道就是创建一个透明的Activity覆盖在其他应用上，然后再按照原来的方法取出Activity的缓冲，这样通过这种透明的方式把下层的画面信息给录进来了，曲线救国达到在应用外截图的目的。</p>
+<h3 id="流程分解">流程分解：</h3>
+<ul>
+<li>动态获取录屏权限（保存此Intent）</li>
+<li>使用该Intent创建MediaProjection。</li>
+<li>启动一个透明的Activity</li>
+<li>启动一个前台服务Notification显式提示用户当前正在获取屏幕。（谷歌标准如此要求，不然会报错）</li>
+<li>使用MediaProjection创建VirtualDisplay</li>
+<li>创建ImageReader，获取图片缓冲（实际上需要的图片）</li>
+<li>释放资源：VirtualDisplay，ImageReader。（不要释放MediaProjection，一旦释放只能重新动态获取录屏权限，而不能用保存的Intent来生成，此改动疑似A14版本开始生效，以前可以通过保存intent重复创建MediaProjection，部分过时博客依然采用此方法。）</li>
 </ul>
+<h3 id="实现细节">实现细节：</h3>
+<p>因为总要开启一个Service用来提示用户，所以整个过程托管在一个Service实现，包括MediaProjection的存储。服务自杀通过定时器完成。每次需要使用截图时Start Service即可。</p>
+<h3 id="demo">DEMO</h3>
+<p>github demo: <a href="https://github.com/blueskybone/ScreenshotDemo">https://github.com/blueskybone/ScreenshotDemo</a></p>
 
+    <a href="/"> >> Home</a>
+  </main>
+</div>
     <footer>
       
 <script>
