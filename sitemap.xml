@@ -17,12 +17,6 @@
     <loc>https://blueskybone.github.io/post/</loc>
     <lastmod>2025-04-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blueskybone.github.io/categories/fmri/</loc>
-    <lastmod>2025-04-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blueskybone.github.io/post/fmri-data-process/</loc>
-    <lastmod>2025-04-18T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://blueskybone.github.io/post/docker-compose/</loc>
     <lastmod>2025-04-12T00:00:00+00:00</lastmod>
   </url><url>
@@ -37,6 +31,9 @@
   </url><url>
     <loc>https://blueskybone.github.io/post/android-post/</loc>
     <lastmod>2024-06-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blueskybone.github.io/categories/fmri/</loc>
+    <lastmod>2024-05-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blueskybone.github.io/post/fmri-tool-quick-usage/</loc>
     <lastmod>2024-05-23T00:00:00+00:00</lastmod>

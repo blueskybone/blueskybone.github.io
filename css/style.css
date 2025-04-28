@@ -132,6 +132,7 @@ output:
     height: 1.75rem;
     font-size: 1rem;
     border-bottom: 1px solid #000;
+    background: #0000EE;
   }
 
   header ul,
@@ -146,7 +147,7 @@ output:
   }
 
   header a {
-    color: #0000EE;
+    color: #ffffff;
     line-height: 1.75rem;
     padding: 0 0.5rem;
     font-weight: bold;
@@ -154,7 +155,7 @@ output:
 
   header a:hover,
   header .current a {
-    color: #0000EE;
+    color: #ffffff;
     font-weight: bold;
   }
 
