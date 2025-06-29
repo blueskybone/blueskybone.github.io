@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=&amp;path=livereload" data-no-instant defer></script>
+  <head>
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico">
@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="A simple, minimal blog for those who love text.">
-    <title>docker usages | Blog</title>
+    <title>use multi ssh-key in one machine | Blog</title>
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     <link rel="stylesheet" href="https://blueskybone.github.io/css/theme-override.css"><link rel="stylesheet" href="https://blueskybone.github.io/css/atom-one-light.min.css">
@@ -57,9 +57,9 @@
     <br/>
 
 <div class="article-meta">
-<h1><span class="title">docker usages</span></h1>
+<h1><span class="title">use multi ssh-key in one machine</span></h1>
 
-<h3 class="date">2025/04/12</h3>
+<h3 class="date">0001/01/01</h3>
 <p class="terms">
   
   
@@ -74,28 +74,25 @@
 
 <div class="content-wrapper">
   <main>
-    <h2 id="网络">网络</h2>
-<h3 id="proxy配置">proxy配置：</h3>
-<p>不要使用powershell来配置proxy，使用cmd。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>set http_proxy<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://localhost:8080&#34;</span>	<span style="color:#75715e">#改成你的端口号</span>
-</span></span><span style="display:flex;"><span>set https_proxy<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://localhost:8080&#34;</span>	<span style="color:#75715e">#改成你的端口号</span>
-</span></span></code></pre></div><p>不设置代理，docker build的时候容易卡在pull环境阶段。</p>
-<h3 id="换源">换源：</h3>
-<p>配置文件位置：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo mkdir -p /etc/docker
-</span></span><span style="display:flex;"><span>vim /etc/docker/daemon.json
-</span></span></code></pre></div><p>内容：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;registry-mirrors&#34;</span>: [
-</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;镜像源1&#34;</span>,
-</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;镜像源2&#34;</span>
-</span></span><span style="display:flex;"><span>    ]
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>镜像源列表：</p>
-<p><a href="https://cloud.tencent.com/developer/article/2485043">Docker/DockerHub 国内镜像源/加速列表（长期维护）</a></p>
-<h2 id="常用指令">常用指令</h2>
-<p>查看所有容器（包括停止的）<code>docker ps -a</code></p>
-<p>进入正在运行的容器 <code>docker exec -it &lt;container ID&gt; /bin/bash </code></p>
+    <p>在同一台机器上管理多个github账号</p>
+<h2 id="windows">Windows</h2>
+<p>创建ssh密钥对</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ssh-keygen -t rsa -f id_rsa_name <span style="color:#75715e">#生成rsa类型的ssh密钥对名称为id_rsa_name，避免冲突自己换一个名称</span>
+</span></span></code></pre></div><p>修改.ssh下config文件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ae81ff">Host github_account_1	#起一个别名</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">HostName github.com	#指定为github域名</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">User git			    </span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">IdentityFile C:\Users\Godot\.ssh\id_rsa_name_1</span> <span style="color:#75715e">#指定私钥文件</span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Host  github_account_2	</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">HostName github.com	</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">User git			    </span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">IdentityFile C:\Users\Godot\.ssh\id_rsa_name_2</span>
+</span></span></code></pre></div><p>在你的本地git仓库下指定使用账户的用户名和邮箱，设置一次即可。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git config user.name yourname
+</span></span><span style="display:flex;"><span>git config user.email your@email.address
+</span></span></code></pre></div><h2 id="linux">Linux</h2>
+<p>参考https://www.freecodecamp.org/chinese/news/manage-multiple-github-accounts-the-ssh-way/</p>
 
     <a href="/"> >> Home</a>
   </main>
